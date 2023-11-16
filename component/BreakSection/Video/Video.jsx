@@ -18,7 +18,7 @@ export default function Video({
   const handleVideoReady = () => {
     setTimeout(() => {
       setVideoLoaded(true);
-    }, 1000);
+    }, 6000);
   };
 
   return (
