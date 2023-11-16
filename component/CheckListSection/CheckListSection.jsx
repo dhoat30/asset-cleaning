@@ -15,10 +15,10 @@ export default function CheckListSection({
     <ContainerStyled maxWidth="xl" className="row">
       <Box className="content-wrapper">
         <Typography variant="h6" component="p" align="center">
-          {title}
+          {subtitle}
         </Typography>
         <Typography variant="h3" component="h3" align="center">
-          {subtitle}
+          {title}
         </Typography>
       </Box>
       <Box className="checklist-wrapper">
@@ -52,21 +52,33 @@ export default function CheckListSection({
 const ContainerStyled = styled(Container)`
   padding-top: 80px;
   padding-bottom: 80px;
+  @media (max-width: 600px) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
   p {
     margin-bottom: 8px;
     color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
   }
   .checklist-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr; */
+
     margin-top: 40px;
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    > div {
+      width: calc(30% - 24px);
+      @media (max-width: 1000px) {
+        width: calc(45% - 24px);
+      }
+      @media (max-width: 650px) {
+        width: calc(100% - 24px);
+      }
     }
-    @media (max-width: 550px) {
-      grid-template-columns: 1fr;
-    }
+
     .checklist {
       border-radius: 12px;
       background: none;

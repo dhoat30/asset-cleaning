@@ -1,6 +1,6 @@
 import React, { useState, forwardRef } from "react";
 import styled from "@emotion/styled";
-import { Container, Paper, Typography, Box } from "@mui/material";
+import { Paper, Typography, Box } from "@mui/material";
 import { footerCTAData } from "./footerCTAData";
 import Input from "../InputFields/Input";
 import DatePicker from "react-datepicker";
@@ -146,7 +146,7 @@ export default function FooterCTAForm({ title, description, formName }) {
   });
 
   return (
-    <ContainerStyled maxWidth="md">
+    <ContainerStyled>
       <Paper
         className="wrapper"
         elevation={3}
@@ -180,7 +180,7 @@ export default function FooterCTAForm({ title, description, formName }) {
     </ContainerStyled>
   );
 }
-const ContainerStyled = styled(Container)`
+const ContainerStyled = styled(Box)`
   .wrapper {
     border-radius: 16px;
     padding: 32px 24px;

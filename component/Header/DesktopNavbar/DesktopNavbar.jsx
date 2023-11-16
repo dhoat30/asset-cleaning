@@ -140,10 +140,11 @@ function DesktopNavbar() {
             {/* logo  */}
             <Link href="/">
               <Image
-                src="/logo.svg"
-                width="156"
-                height="60"
+                src="/logo.png"
+                width="192"
+                height="42"
                 alt="Asset Cleaning Logo"
+                style={{ objectFit: "cover" }}
               />
             </Link>
             {/* menu */}

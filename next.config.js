@@ -1,10 +1,19 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
+
     images: {
-        domains: ['asset-cleaning-tauranga.local'],
+        remotePatterns: [
+            {
+                protocol: isProd ? 'https' : 'http',
+                hostname: isProd ? 'gurpreetd5.sg-host.com' : 'asset-cleaning-tauranga.local',
+
+            },
+        ],
     },
     env: {
-        url: "http://asset-cleaning-tauranga.local"
+        url: isProd ? "http://gurpreetd5.sg-host.com" : "http://asset-cleaning-tauranga.local",
     },
 }
 

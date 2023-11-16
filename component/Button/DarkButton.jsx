@@ -8,6 +8,7 @@ export default function DarkButton({
   children,
   startIcon,
   className,
+  variant,
 }) {
   return (
     <ButtonStyled

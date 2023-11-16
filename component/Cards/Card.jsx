@@ -7,9 +7,25 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "@emotion/styled";
 import Image from "next/image";
-export default function CardComponent({ title, description, image, cta }) {
+import Link from "next/link";
+import DarkButton from "../Button/DarkButton";
+import OutlinedDarkButton from "../Button/OutlinedDarkButton";
+export default function CardComponent({
+  title,
+  description,
+  image,
+  ctaLabel,
+  ctaLink,
+}) {
   return (
-    <CardStyled sx={{ width: "100%", background: "none" }}>
+    <CardStyled
+      sx={{
+        width: "100%",
+        background: "none",
+        borderRadius: "16px",
+        paddingBottom: "8px",
+      }}
+    >
       <div className="image-wrapper">
         <Image src={image.url} alt={title} fill />
       </div>
@@ -22,10 +38,11 @@ export default function CardComponent({ title, description, image, cta }) {
           {description}
         </Typography>
       </CardContent>
-      {cta && (
-        <CardActions>
-          <Button size="small">Share</Button>
-          <Button size="small">Learn More</Button>
+      {ctaLink && (
+        <CardActions className="button-wrapper">
+          <Link href={ctaLink}>
+            <OutlinedDarkButton>{ctaLabel}</OutlinedDarkButton>
+          </Link>
         </CardActions>
       )}
     </CardStyled>
@@ -40,5 +57,8 @@ const CardStyled = styled(Card)`
     img {
       object-fit: cover;
     }
+  }
+  .button-wrapper {
+    padding-left: 16px;
   }
 `;

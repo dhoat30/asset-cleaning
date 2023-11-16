@@ -30,8 +30,8 @@ export default function Footer({ optionsData }) {
             <Link href="/">
               <Image
                 src="/logo-dark.svg"
-                width="250"
-                height="72"
+                width="294"
+                height="65"
                 alt="Asset Cleaning Logo"
               />
             </Link>
@@ -50,7 +50,10 @@ export default function Footer({ optionsData }) {
       <CopyRight maxWidth="xl" className="row">
         <Typography variant="body2" component="p">
           Challenge Cleaning Ltd. t/a Asset Cleaning & Property Services © 2023.
-          All Rights Reserved | Built By WebDUEL
+          All Rights Reserved | Built By
+          <a href="https://webduel.co.nz" target="_blank" rel="nofollow">
+            Web<strong>DUEL</strong>
+          </a>
         </Typography>
       </CopyRight>
     </>
@@ -68,12 +71,22 @@ const BoxStyled = styled(Box)`
     }
   }
 `;
-const CopyRight = styled(Container)`
+const CopyRight = styled(Box)`
   background: var(--material-theme-ref-primary-primary-5, #071400);
   padding: 16px 0;
   text-align: center;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  p {
+    color: white;
+  }
+  a {
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+    strong {
+      color: white;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+  }
 `;

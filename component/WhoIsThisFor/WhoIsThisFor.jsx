@@ -6,12 +6,8 @@ import DarkButton from "../Button/DarkButton";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import CardComponent from "../Cards/Card";
-export default function BenefitsSection({
-  title,
-  subtitle,
-  cta,
-  benefitCardsArray,
-}) {
+export default function WhoIsThisFor({ title, subtitle, cta, cardsArray }) {
+  console.log(cardsArray);
   return (
     <ContainerStyled maxWidth="xl" className="row">
       <Box className="content-wrapper">
@@ -28,13 +24,15 @@ export default function BenefitsSection({
         </Typography>
       </Box>
       <Box className="cards-wrapper">
-        {benefitCardsArray.map((item, index) => {
+        {cardsArray.map((item, index) => {
           return (
             <CardComponent
               key={index}
               title={item.title}
               description={item.description}
               image={item.image}
+              ctaLabel={item.cta.label}
+              ctaLink={item.cta.link}
             />
           );
         })}

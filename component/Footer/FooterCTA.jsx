@@ -8,42 +8,43 @@ import Image from "next/image";
 import FooterCTAForm from "../Forms/FooterCTAForm/FooterCTAForm";
 export default function FooterCTA({ data }) {
   return (
-    <Section>
-      <Container maxWidth="xl" className="row">
-        <Box className="content-wrapper">
-          <Image
-            src={data.image.url}
-            width={200}
-            height={200}
-            alt={data.image.alt ? data.image.alt : data.title}
-          />
-          <Typography variant="h3" component="h3">
-            {data.title}
-          </Typography>
-          <Typography variant="h6" component="p">
-            {data.description}
-          </Typography>
-        </Box>
-        <Box className="form-wrapper">
-          <FooterCTAForm title={data.formTitle} />
-        </Box>
-      </Container>
-    </Section>
+    <ContainerStyled maxWidth="xl" className="row">
+      <Box className="content-wrapper">
+        <Image
+          src={data.image.url}
+          width={200}
+          height={200}
+          alt={data.image.alt ? data.image.alt : data.title}
+        />
+        <Typography variant="h3" component="h3">
+          {data.title}
+        </Typography>
+        <Typography variant="h6" component="p">
+          {data.description}
+        </Typography>
+      </Box>
+      <Box className="form-wrapper">
+        <FooterCTAForm title={data.formTitle} />
+      </Box>
+    </ContainerStyled>
   );
 }
-const Section = styled.section`
+const ContainerStyled = styled(Container)`
   background: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
   padding: 80px 0;
-  margin: 40px 0;
+  margin: 40px auto;
+  @media (min-width: 600px) {
+    width: 95%;
+  }
   border-radius: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  @media (max-width: 1140px) {
+    display: block;
+  }
   .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    @media (max-width: 1140px) {
-      display: block;
-    }
   }
   .content-wrapper {
     @media (max-width: 1140px) {
