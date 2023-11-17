@@ -11,7 +11,6 @@ import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSectio
 import React from "react";
 
 export default function SingleServicePage({ data, whyChooseUsData }) {
-  console.log(whyChooseUsData);
   const heroData = {
     title: data?.acf.hero_section.title,
     description: data?.acf.hero_section.description,

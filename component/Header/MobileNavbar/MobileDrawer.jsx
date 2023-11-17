@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import Link from "next/link";
@@ -12,6 +12,17 @@ export default function MobileDrawer({ anchorElNav, handleCloseNavMenu }) {
     event.preventDefault();
     setShowMenu(index === showMenu ? -1 : index);
   };
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(-1);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <Drawer open={anchorElNav} onClose={handleCloseNavMenu}>
