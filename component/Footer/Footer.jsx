@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import IconCTA from "./IconCTA";
 
-export default function Footer({ optionsData }) {
+export default function Footer({ optionsData, showCTA }) {
   const ctaData = {
     title: optionsData.footer.footer_quality_cta.title,
     description: optionsData.footer.footer_quality_cta.description,
@@ -22,7 +22,8 @@ export default function Footer({ optionsData }) {
 
   return (
     <>
-      <FooterCTA data={ctaData} />
+      {showCTA && <FooterCTA data={ctaData} />}
+
       <BoxStyled>
         <Container maxWidth="xl" className="row">
           <Box className="column">
@@ -46,7 +47,7 @@ export default function Footer({ optionsData }) {
           </Box>
         </Container>
       </BoxStyled>
-      <CopyRight maxWidth="xl" className="row">
+      <CopyRight className="row">
         <Typography variant="body2" component="p">
           Challenge Cleaning Ltd. t/a Asset Cleaning & Property Services © 2023.
           All Rights Reserved | Built By

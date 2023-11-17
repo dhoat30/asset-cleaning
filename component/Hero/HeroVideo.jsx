@@ -67,16 +67,24 @@ export default function HeroVideo({ data }) {
   );
 }
 const BoxStyled = styled(Box)`
+  @media (max-width: 1000px) {
+    bottom: -100px;
+    position: relative;
+  }
   .image-wrapper {
     position: relative;
     width: 100%;
-    height: 80vh;
-    img {
-      object-fit: cover;
+
+    @media (max-width: 1000px) {
+      padding-bottom: 0;
+      height: auto;
     }
     @media (max-width: 600px) {
-      padding-bottom: 100%;
+      padding-bottom: 10%;
       height: auto;
+    }
+    img {
+      object-fit: cover;
     }
   }
 
@@ -93,8 +101,9 @@ const BoxStyled = styled(Box)`
     top: 50%;
     transform: translateY(-50%);
     position: absolute;
-    @media (max-width: 600px) {
+    @media (max-width: 1000px) {
       top: -100px;
+
       position: relative;
       transform: translateY(0%);
     }

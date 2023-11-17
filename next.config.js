@@ -13,7 +13,7 @@ const nextConfig = {
         ],
     },
     env: {
-        url: isProd ? "http://gurpreetd5.sg-host.com" : "http://asset-cleaning-tauranga.local",
+        url: isProd ? "https://gurpreetd5.sg-host.com" : "http://asset-cleaning-tauranga.local",
     },
 }
 

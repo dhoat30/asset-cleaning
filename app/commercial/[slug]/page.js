@@ -14,7 +14,7 @@ export default async function singleService({ params }) {
         <main>
             <Header optionsData={optionsData} />
             <SingleServicePage data={data[0]} whyChooseUsData={whyChooseUsData[0]} />
-            <Footer optionsData={optionsData} />
+            <Footer optionsData={optionsData} showCTA={true} />
         </main>
     )
 }
