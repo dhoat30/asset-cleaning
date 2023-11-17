@@ -8,7 +8,6 @@ import Link from "next/link";
 import IconCTA from "./IconCTA";
 
 export default function Footer({ optionsData }) {
-  console.log(optionsData.contact_info);
   const ctaData = {
     title: optionsData.footer.footer_quality_cta.title,
     description: optionsData.footer.footer_quality_cta.description,
@@ -20,7 +19,7 @@ export default function Footer({ optionsData }) {
   const street = optionsData.contact_info.street_address;
   const city = optionsData.contact_info.city;
   const postCode = optionsData.contact_info.post_code;
-  console.log(phone);
+
   return (
     <>
       <FooterCTA data={ctaData} />

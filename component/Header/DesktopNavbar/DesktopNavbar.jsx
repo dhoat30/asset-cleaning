@@ -13,10 +13,16 @@ import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownR
 import { Paper } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 import styled from "@emotion/styled";
+import { usePathname } from "next/navigation";
+
 function DesktopNavbar() {
   const [showMenu, setShowMenu] = useState(-1);
   const menuRef = useRef(null);
-
+  const pathname = usePathname();
+  // Function to check if the path matches the current page
+  const isActive = (path) => {
+    return pathname === path;
+  };
   // drop down logic
   useEffect(() => {
     function handleClickOutside(event) {
@@ -31,27 +37,30 @@ function DesktopNavbar() {
   }, []);
 
   const showDropdown = (event, index) => {
+    event.preventDefault();
     setTimeout(() => {
       setShowMenu(index);
     }, 200); // Delay in milliseconds
   };
   const hideDropdown = (event, index) => {
     event.preventDefault();
+
     setTimeout(() => {
       setShowMenu(-1);
     }, 200); // Del
   };
 
   const toggleDropdown = (event, index) => {
+    console.log("toggleDropdown");
     event.preventDefault();
-    setShowMenu(index === showMenu ? -1 : index);
+    // setShowMenu(index === showMenu ? -1 : index);
   };
 
   // render menu items
   const menuItems = headerLinks.map((item, index) => {
     return (
       <MenuItem
-        className="link"
+        className="list-item"
         component="li"
         key={index}
         sx={{ color: "white", display: "block", position: "relative" }}
@@ -61,9 +70,14 @@ function DesktopNavbar() {
         onMouseEnter={
           item.subLinks ? (event) => showDropdown(event, index) : null
         }
-        onClick={item.subLinks ? (event) => toggleDropdown(event, index) : null}
       >
-        <Link href={item.url}>
+        <Link
+          className={isActive(item.url) ? "active parent-link" : "parent-link"}
+          href={item.url}
+          onClick={
+            item.subLinks ? (event) => toggleDropdown(event, index) : null
+          }
+        >
           <Typography
             component="span"
             variant="button"
@@ -96,7 +110,12 @@ function DesktopNavbar() {
             <Paper sx={{ background: "white" }}>
               {item.subLinks.map((subLink, subIndex) => (
                 <Box component="li" key={subIndex} className="text-left">
-                  <Link href={subLink.url}>
+                  <Link
+                    href={subLink.url}
+                    className={
+                      isActive(subLink.url) ? "active child-link" : "child-link"
+                    }
+                  >
                     <Typography
                       className="subLink"
                       component="span"
@@ -143,6 +162,7 @@ function DesktopNavbar() {
                 src="/logo.png"
                 width="192"
                 height="42"
+                quality={70}
                 alt="Asset Cleaning Logo"
                 style={{ objectFit: "cover" }}
               />
@@ -177,23 +197,45 @@ export default DesktopNavbar;
 const AppBarContainer = styled(AppBar)`
   position: relative;
   z-index: 100;
-  .link {
-    > a {
+  .list-item {
+    > .parent-link {
       display: flex;
       align-items: center;
-      padding: 16px 24px;
+      padding: 8px 4px;
       color: var(--material-theme-sys-dark-on-primary, #1b3700);
-
-      &:hover {
+      /* &:hover {
         color: var(--material-theme-sys-dark-on-surface);
         svg {
           color: var(--material-theme-sys-dark-on-surface);
         }
-      }
+      } */
+    }
+    .parent-link.active {
+      border-bottom: 2px solid
+        var(--material-theme-sys-dark-on-primary, #1b3700);
+      /* color: red;
+      &:hover {
+        color: red;
+        svg {
+          color: red;
+        }
+      } */
     }
   }
+
   .sublinks-container {
     li {
+      .child-link {
+        span {
+          color: var(--material-theme-sys-dark-on-primary, #1b3700);
+        }
+      }
+      .child-link.active {
+        span {
+          color: var(--material-theme-sys-light-primary-container, #aff66e);
+          background: var(--material-theme-sys-dark-on-primary, #1b3700);
+        }
+      }
       &:hover {
         span {
           color: var(--material-theme-sys-light-primary);

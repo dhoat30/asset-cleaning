@@ -13,6 +13,13 @@ export const getSingleResidentialData = async (slug) => {
     let data = await fetchData.json();
     return data
 }
+export const getSingleCommercialData = async (slug) => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/commercial-cleaning?slug=${slug}&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
 // //fetch work categories 
 // export const getProjectCategories = async () => {
 //     let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/work-category`, {
@@ -23,13 +30,6 @@ export const getSingleResidentialData = async (slug) => {
 // }
 
 // fetch single project 
-export const getSingleCommercialData = async (slug) => {
-    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/work?slug=${slug}&acf_format=standard`, {
-        next: { revalidate: 60 },
-    });
-    let data = await fetchData.json();
-    return data
-}
 
 export const getOptions = async () => {
     let fetchData = await fetch(`${process.env.url}/wp-json/options/all`, {

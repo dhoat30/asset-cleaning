@@ -7,7 +7,6 @@ import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import CardComponent from "../Cards/Card";
 export default function WhoIsThisFor({ title, subtitle, cta, cardsArray }) {
-  console.log(cardsArray);
   return (
     <ContainerStyled maxWidth="xl" className="row">
       <Box className="content-wrapper">

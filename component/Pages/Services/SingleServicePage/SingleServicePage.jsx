@@ -10,25 +10,26 @@ import WhoIsThisFor from "@/component/WhoIsThisFor/WhoIsThisFor";
 import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSection";
 import React from "react";
 
-export default function ResidentialCleaningPage({ data, whyChooseUsData }) {
+export default function SingleServicePage({ data, whyChooseUsData }) {
+  console.log(whyChooseUsData);
   const heroData = {
-    title: data.acf.hero_section.title,
-    description: data.acf.hero_section.description,
-    desktopImage: data.acf.hero_section?.images.desktop_image,
-    mobileImage: data.acf.hero_section?.images.mobile_image,
-    cta: data.acf.hero_section.cta,
-    videoID: data.acf.hero_section.video_id,
+    title: data?.acf.hero_section.title,
+    description: data?.acf.hero_section.description,
+    desktopImage: data?.acf.hero_section?.images.desktop_image,
+    mobileImage: data?.acf.hero_section?.images.mobile_image,
+    cta: data?.acf.hero_section.cta,
+    videoID: data?.acf.hero_section.video_id,
   };
 
   const sectionBreakData = {
-    title: data.acf.section_break.title,
-    description: data.acf.section_break.description,
-    placeholderImage: data.acf.section_break.video_section.placeholder_image,
-    video: data.acf.section_break.video_section.video_file,
-    cta: data.acf.section_break.cta,
+    title: data?.acf.section_break.title,
+    description: data?.acf.section_break.description,
+    placeholderImage: data?.acf.section_break.video_section.placeholder_image,
+    video: data?.acf.section_break.video_section.video_file,
+    cta: data?.acf.section_break.cta,
   };
 
-  const layoutSection = data.acf?.flexible_content
+  const layoutSection = data?.acf?.flexible_content
     ? data.acf.flexible_content.map((item, index) => {
         if (item.acf_fc_layout === "cleaning_process") {
           return (
@@ -82,19 +83,25 @@ export default function ResidentialCleaningPage({ data, whyChooseUsData }) {
         }
       })
     : null;
-  console.log(heroData);
+
   return (
     <>
-      {heroData && <Hero data={heroData} />}
-      <BookAppointmentForm />
-      {data.acf.section_break.title && <BreakSection data={sectionBreakData} />}
+      {heroData.title && <Hero data={heroData} />}
+      {heroData.title && <BookAppointmentForm />}
+
+      {data?.acf.section_break.title && (
+        <BreakSection data={sectionBreakData} />
+      )}
 
       {layoutSection}
-      <WhyChooseUsSection
-        data={whyChooseUsData.acf.why_choose_us_cards}
-        title={whyChooseUsData.acf.hero_section.title}
-        subtitle={whyChooseUsData.acf.hero_section.subtitle}
-      />
+
+      {whyChooseUsData.acf.hero_section?.title && (
+        <WhyChooseUsSection
+          data={whyChooseUsData.acf.why_choose_us_cards}
+          title={whyChooseUsData.acf.hero_section.title}
+          subtitle={whyChooseUsData.acf.hero_section.subtitle}
+        />
+      )}
     </>
   );
 }
