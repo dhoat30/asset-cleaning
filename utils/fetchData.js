@@ -5,9 +5,22 @@ export const getPageData = async (slug) => {
     let data = await response.json();
     return data
 }
-
+export const getAllResidentialData = async (slug) => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/residential-service`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
 export const getSingleResidentialData = async (slug) => {
     let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/residential-service?slug=${slug}&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
+export const getAllCommercialData = async (slug) => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/commercial-cleaning`, {
         next: { revalidate: 60 },
     });
     let data = await fetchData.json();

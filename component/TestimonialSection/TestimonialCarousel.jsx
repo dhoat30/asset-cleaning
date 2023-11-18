@@ -17,7 +17,6 @@ var settings = {
   infinite: true,
 };
 export default function TestimonialCarousel({ dataArr }) {
-  console.log(dataArr);
   // slider arrow functionality
   const sliderRef = useRef(null);
   if (!dataArr.length) return null;

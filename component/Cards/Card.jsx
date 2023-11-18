@@ -27,14 +27,14 @@ export default function CardComponent({
       }}
     >
       <div className="image-wrapper">
-        <Image src={image.url} alt={title} fill />
+        <Image src={image?.url} alt={image?.alt ? image.alt : title} fill />
       </div>
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
-        <Typography variant="body1" component="p">
+        <Typography variant="body2" component="p">
           {description}
         </Typography>
       </CardContent>

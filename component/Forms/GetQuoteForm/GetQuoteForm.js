@@ -2,16 +2,15 @@
 
 import React, { useState } from "react";
 import Input from '../InputFields/Input'
-import { contactFormData } from "./contactFormData";
+import { getQuoteFormData } from "./getQuoteFormData";
 import LoadingBtn from "@/component/Button/LoadingBtn";
-import Box from '@mui/material/Box';
+import Typography from "@mui/material/Typography";
 import styled from "@emotion/styled";
 import axios from "axios";
 import { Alert } from "@mui/material";
-
-
-export default function ContactForm({ className }) {
-    const [formData, setFormData] = useState({ typeOfService: [], formName: "Contact Form" });
+import Paper from "@mui/material/Paper";
+export default function GetQuoteForm({ className, showTitle }) {
+    const [formData, setFormData] = useState({ typeOfService: [], formName: "Quote Form" });
     const [errors, setErrors] = useState({});
     const [activeStep, setActiveStep] = React.useState(0);
     const [isLoading, setIsLoading] = useState(false)
@@ -44,7 +43,7 @@ export default function ContactForm({ className }) {
         const newErrors = {};
 
         // Loop through each field to check if it's required and valid
-        contactFormData.forEach(field => {
+        getQuoteFormData.forEach(field => {
             if (field.required && !formData[field.id]) {
                 // Set field as invalid if it's required but empty or invalid
                 newErrors[field.id] = true;
@@ -121,9 +120,8 @@ export default function ContactForm({ className }) {
     }
 
 
-    const formInputs = contactFormData.map((field, index) => {
+    const formInputs = getQuoteFormData.map((field, index) => {
         const isSelectMultiple = field.type === "select" && field.multiple; // Example condition
-
         return <Input
             key={index}
             label={field.label}
@@ -137,25 +135,37 @@ export default function ContactForm({ className }) {
             errorMessage={field.errorMessage}
             options={field.options}
             multipleValue={field.multiple}
-
         />
     })
     return (
         <Container className={`${className} py-8 `}>
-            <Box sx={{ width: '100%' }}>
-                <div className="input-wrapper p-6">
+            <Paper className="wrapper"
+                variant="outlined"
+            >
+                {showTitle && (
+                    <>
+                        <Typography variant="h3" component="h3">
+                            Get a Custom Cleaning Quote
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            component="p"
+                            sx={{ marginTop: "16px" }}
+                        >
+                            Looking for a tailored cleaning solution? Fill out our simple form, and we'll provide you with a personalized quote that fits your specific cleaning requirements. Let us help you make your space shine!
 
+                        </Typography>
+                    </>
+                )}
+                <div className="input-wrapper p-6">
                     {
                         formInputs
                     }
-
                     <LoadingBtn newSubmission={newSubmission} onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess}>Contact now</LoadingBtn>
-
                     {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Something went wrong. Please Try again</Alert>}
                 </div>
 
-
-            </Box>
+            </Paper>
 
         </Container>
     )
@@ -167,15 +177,17 @@ const Container = styled.div`
     display: none ;
 }
 }
-
-.input-wrapper{ 
-    background: var(--material-theme--sys--dark--surface-container);
-border-radius: 16px; 
-    
-    margin: 16px 24px 16px 24px; 
-    @media(max-width: 500px){ 
-        margin: 0 auto 0 auto;   
+.wrapper{ 
+    padding: 16px 32px; 
+    border-radius: 16px; 
+    @media (max-width: 600px) {
+      padding: 8px 8px;
     }
+    .react-datepicker-wrapper{ 
+        width: 100%; 
+    }
+}
+.input-wrapper{ 
     .Mui-error{ 
         font-size: 1rem;
     }

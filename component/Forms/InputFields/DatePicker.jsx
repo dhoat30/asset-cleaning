@@ -40,13 +40,13 @@ const CustomDatePicker = forwardRef(({ value, onChange }, ref) => {
 const DateTimeInput = forwardRef(({ value, onClick }, ref) => (
   <TextField
     sx={{ marginTop: "24px" }}
-    fullWidth
     variant="outlined"
     label="Select a date and time"
     value={value}
     onClick={onClick}
     ref={ref}
     color="secondary"
+    fullWidth={true}
   />
 ));
 

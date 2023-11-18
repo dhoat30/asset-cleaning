@@ -8,7 +8,6 @@ import Dialog from "@mui/material/Dialog";
 import VideoModal from "../VideoModal/VideoModal";
 
 export default function VideoButton({ videoID }) {
-  console.log(videoID);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {

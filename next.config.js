@@ -6,14 +6,14 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: isProd ? 'https' : 'http',
-                hostname: isProd ? 'gurpreetd5.sg-host.com' : 'asset-cleaning-tauranga.local',
+                protocol: 'https',
+                hostname: 'gurpreetd5.sg-host.com'
 
             },
         ],
     },
     env: {
-        url: isProd ? "https://gurpreetd5.sg-host.com" : "http://asset-cleaning-tauranga.local",
+        url: "https://gurpreetd5.sg-host.com"
     },
 }
 

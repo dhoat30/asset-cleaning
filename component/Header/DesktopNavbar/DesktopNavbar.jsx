@@ -51,7 +51,6 @@ function DesktopNavbar() {
   };
 
   const toggleDropdown = (event, index) => {
-    console.log("toggleDropdown");
     event.preventDefault();
     // setShowMenu(index === showMenu ? -1 : index);
   };
@@ -177,12 +176,9 @@ function DesktopNavbar() {
               }}
             >
               {menuItems}
-              <Link
-                href="https://speed.webduel.co.nz/get-a-quote"
-                target="_blank"
-              >
+              <Link href="/get-quote" target="_blank">
                 <Button size="large" variant="contained">
-                  Get instant quote
+                  GET A QUOTE
                 </Button>
               </Link>
             </Box>

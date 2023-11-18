@@ -36,11 +36,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function Home() {
   const data = await getPageData('home')
   const optionsData = await getOptions()
+  const whyChooseUsData = await getPageData('why-choose-us-commercial')
 
   return (
     <main>
       <Header optionsData={optionsData} />
-      <HomePage data={data[0]} testimonialData={optionsData} />
+      <HomePage data={data[0]} testimonialData={optionsData} whyChooseUsData={whyChooseUsData[0]} />
       <Footer optionsData={optionsData} showCTA={true} />
     </main>
   )

@@ -2,6 +2,7 @@ import { getOptions, getPageData, getSingleResidentialData } from '@/utils/fetch
 import Header from '@/component/Header/Header'
 import SingleServicePage from '@/component/Pages/Services/SingleServicePage/SingleServicePage'
 import Footer from '@/component/Footer/Footer'
+import ResidentialSingleServicePage from '@/component/Pages/Services/ResidentialSingleServicePage/ResidentialSingleServicePage'
 
 export default async function singleService({ params }) {
     const slug = params.slug
@@ -12,7 +13,8 @@ export default async function singleService({ params }) {
     return (
         <main>
             <Header optionsData={optionsData} />
-            <SingleServicePage data={data[0]} whyChooseUsData={whyChooseUsData[0]} />
+            <ResidentialSingleServicePage data={data[0]} whyChooseUsData={whyChooseUsData[0]} />
+
             <Footer optionsData={optionsData} showCTA={true} />
         </main>
     )

@@ -116,7 +116,7 @@ const ContainerStyled = styled(Box)`
         width: calc(45% - 24px);
       }
       @media (max-width: 650px) {
-        width: calc(100% - 24px);
+        width: calc(100%);
       }
     }
   }

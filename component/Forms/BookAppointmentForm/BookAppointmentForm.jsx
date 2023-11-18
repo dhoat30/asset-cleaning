@@ -10,10 +10,11 @@ import setMinutes from "date-fns/setMinutes";
 import TextField from "@mui/material/TextField";
 import CustomDatePicker from "../InputFields/DatePicker";
 import LoadingBtn from "@/component/Button/LoadingBtn";
-export default function BookAppointmentForm() {
+export default function BookAppointmentForm({ showTitle }) {
   const [formData, setFormData] = useState({
     typeOfService: [],
     formName: "Contact Form",
+    showTitle,
   });
   const [errors, setErrors] = useState({});
   const [activeStep, setActiveStep] = React.useState(0);
@@ -148,22 +149,26 @@ export default function BookAppointmentForm() {
   });
 
   return (
-    <ContainerStyled maxWidth="md">
-      <Paper
-        className="wrapper"
-        elevation={3}
-        sx={{
-          background:
-            "var(--material-theme-sys-light-surface-container-low, #F4F4ED)",
-        }}
-      >
-        <Typography variant="h3" component="h3">
-          Schedule Your Cleaning Appointment
-        </Typography>
-        <Typography variant="body1" component="p" sx={{ marginTop: "16px" }}>
-          We are excited to help you with your cleaning needs. Please fill out
-          the form below and we will be in touch with you shortly.
-        </Typography>
+    <ContainerStyled>
+      <Paper className="wrapper" variant="outlined">
+        {showTitle && (
+          <>
+            <Typography variant="h3" component="h3">
+              Schedule a Site Assessment with Our Manager
+            </Typography>
+            <Typography
+              variant="body1"
+              component="p"
+              sx={{ marginTop: "16px" }}
+            >
+              Arrange a visit from our site manager to expertly assess your
+              cleaning needs. We'll provide a personalized walkthrough to
+              understand your specific requirements and devise the ideal
+              cleaning solution for your space. Book an appointment now for a
+              comprehensive evaluation.
+            </Typography>
+          </>
+        )}
 
         <Box className="form-wrapper">
           {formInputs}
@@ -186,31 +191,15 @@ export default function BookAppointmentForm() {
     </ContainerStyled>
   );
 }
-const ContainerStyled = styled(Container)`
-  position: relative;
-  top: -56px;
+const ContainerStyled = styled(Box)`
   .wrapper {
+    padding: 16px 32px;
     border-radius: 16px;
-    padding: 32px;
     @media (max-width: 600px) {
-      padding: 32px 8px;
+      padding: 8px 8px;
     }
-    .form-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      @media (max-width: 600px) {
-        display: block;
-      }
-      grid-column-gap: 24px;
-      .date-picker-wrapper {
-        grid-column: 1 / 3;
-        .react-datepicker-wrapper {
-          width: 100%;
-        }
-      }
-      button {
-        width: 170px;
-      }
+    .react-datepicker-wrapper {
+      width: 100%;
     }
   }
 `;

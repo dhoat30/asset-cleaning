@@ -6,8 +6,9 @@ import HomeServiceCard from "./HomeServiceCard";
 import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import TestimonialSection from "@/component/TestimonialSection/TestimonialSection";
-export default function HomePage({ data, testimonialData }) {
-  console.log(testimonialData.testimonial);
+import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSection";
+import USP from "@/component/USP/USP";
+export default function HomePage({ data, testimonialData, whyChooseUsData }) {
   const heroData = {
     title: data.acf.hero_section.title,
     description: data?.acf.hero_section.description,
@@ -33,8 +34,16 @@ export default function HomePage({ data, testimonialData }) {
   return (
     <>
       <HeroVideo data={heroData} />
+      <USP />
       <ServiceCardsWrapper maxWidth="xl">{serviceCards}</ServiceCardsWrapper>
       <TestimonialSection data={testimonialData.testimonial} />
+      {whyChooseUsData.acf.hero_section?.title && (
+        <WhyChooseUsSection
+          data={whyChooseUsData.acf.why_choose_us_cards}
+          title={whyChooseUsData.acf.hero_section.title}
+          subtitle={whyChooseUsData.acf.hero_section.subtitle}
+        />
+      )}
     </>
   );
 }

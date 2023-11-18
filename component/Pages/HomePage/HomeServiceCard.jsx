@@ -28,10 +28,10 @@ export default function HomeServiceCard({
         {subtitle}
       </Typography>
       <div className="cta-wrapper">
-        <Link href={`${cta1.Link}`}>
+        <Link href={`${cta1.link}`}>
           <OutlinedDarkButton>{cta1.label} </OutlinedDarkButton>
         </Link>
-        <Link href={`${cta2.Link}`}>
+        <Link href={`${cta2.link}`}>
           <DarkButton icon={icon} startIcon={true}>
             {cta2.label}
           </DarkButton>

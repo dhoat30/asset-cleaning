@@ -11,8 +11,11 @@ import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSectio
 import styled from "@emotion/styled";
 import React from "react";
 import { Container } from "@mui/material";
-
-export default function SingleServicePage({ data, whyChooseUsData }) {
+import GetQuoteForm from "@/component/Forms/GetQuoteForm/GetQuoteForm";
+export default function ResidentialSingleServicePage({
+  data,
+  whyChooseUsData,
+}) {
   const heroData = {
     title: data?.acf.hero_section.title,
     description: data?.acf.hero_section.description,
@@ -89,7 +92,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
     <>
       {heroData.title && <Hero data={heroData} />}
       <FormWrapper maxWidth="md">
-        {heroData.title && <BookAppointmentForm showTitle={true} />}
+        <GetQuoteForm showTitle={true} />
       </FormWrapper>
 
       {data?.acf.section_break.title && (

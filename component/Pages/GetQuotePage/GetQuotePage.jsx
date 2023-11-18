@@ -4,7 +4,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import ContactForm from "@/component/Forms/ContactForm/ContactForm";
 import TestimonialSection from "@/component/TestimonialSection/TestimonialSection";
-export default function ContactPage({ data, testimonialData }) {
+import GetQuoteForm from "@/component/Forms/GetQuoteForm/GetQuoteForm";
+export default function GetQuotePage({ data, testimonialData }) {
   return (
     <>
       <ContainerStyled maxWidth="xl" className="row">
@@ -16,13 +17,9 @@ export default function ContactPage({ data, testimonialData }) {
             {data.acf.form_section.description}
           </Typography>
         </Box>
-        <Paper
-          elevation={3}
-          className="contact-form-wrapper"
-          variant="outlined"
-        >
-          <ContactForm />
-        </Paper>
+        <div className="contact-form-wrapper">
+          <GetQuoteForm />
+        </div>
       </ContainerStyled>
       <TestimonialSection data={testimonialData.testimonial} />
     </>
@@ -54,7 +51,6 @@ const ContainerStyled = styled(Container)`
     }
   }
   .contact-form-wrapper {
-    padding: 0 16px;
     border-radius: 16px;
   }
 `;

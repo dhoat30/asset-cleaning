@@ -31,12 +31,12 @@ export default function FooterCTA({ data }) {
 }
 const ContainerStyled = styled(Container)`
   background: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
-
   margin: 40px auto;
   @media (min-width: 600px) {
     width: 95%;
-    padding: 80px 0;
+    padding: 80px 40px;
   }
+
   padding: 40px 0 0 0;
   border-radius: 40px;
   display: grid;
@@ -51,7 +51,9 @@ const ContainerStyled = styled(Container)`
   .content-wrapper {
     @media (max-width: 1140px) {
       text-align: center;
+      padding: 0 16px;
     }
+
     h3 {
       color: var(--material-theme-sys-light-primary-container, #aff66e);
       margin-top: 24px;

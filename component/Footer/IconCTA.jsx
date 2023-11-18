@@ -44,9 +44,9 @@ const Container = styled(Link)`
   gap: 12px;
   margin: 24px 0;
   span {
-    color: var(--material-theme-sys-dark-on-surface, #c7c7c0);
+    color: var(--material-theme-sys-light-on-surface);
     &:hover {
-      color: #94d955;
+      color: #000000;
     }
   }
 `;
@@ -57,9 +57,9 @@ const ListStyled = styled.div`
 
   span {
     display: block;
-    color: var(--material-theme-sys-dark-on-surface, #c7c7c0);
+    color: var(--material-theme-sys-light-on-surface);
     &:hover {
-      color: #94d955;
+      color: #000000;
     }
   }
 `;
