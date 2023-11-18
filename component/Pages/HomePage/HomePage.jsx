@@ -33,7 +33,8 @@ export default function HomePage({ data, testimonialData, whyChooseUsData }) {
   });
   return (
     <>
-      <HeroVideo data={heroData} />
+      <Hero data={heroData} />
+
       <USP />
       <ServiceCardsWrapper maxWidth="xl">{serviceCards}</ServiceCardsWrapper>
       <TestimonialSection data={testimonialData.testimonial} />

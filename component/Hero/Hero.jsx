@@ -13,24 +13,17 @@ export default function Hero({ data }) {
   return (
     <BoxStyled component="section">
       <Box className="image-wrapper">
-        {data.desktopImage && !matches && (
-          <Image
-            className="desktop"
-            src={data.desktopImage.url}
-            alt={data.title}
-            fill
-            priority={true}
-          />
-        )}
-        {data.mobileImage && matches && (
-          <Image
-            className="mobile"
-            src={data.mobileImage.sizes.medium_large}
-            alt={data.title}
-            priority={true}
-            fill
-          />
-        )}
+        <Image
+          className="desktop"
+          src={
+            data.desktopImage.sizes["2048x2048"]
+              ? data.desktopImage.sizes["2048x2048"]
+              : data.desktopImage.url
+          }
+          alt={data.title}
+          fill
+          priority={true}
+        />
       </Box>
       <Container maxWidth="xl" className="row">
         <Paper

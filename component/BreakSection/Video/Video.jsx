@@ -1,8 +1,9 @@
+"use client";
 import React, { useState, useEffect, Suspense } from "react";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
 import Image from "next/image";
 import styled from "@emotion/styled";
-
+import PlayIcon from "@/component/Icons/PlayIcon";
 export default function Video({
   data,
   videoFile,
@@ -11,17 +12,15 @@ export default function Video({
 }) {
   const [isClient, setIsClient] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false); // New state for tracking video load
-
+  console.log(videoLoaded);
   useEffect(() => {
     setIsClient(true);
   }, []);
-  // Function to call when video is ready
-  const handleVideoReady = () => {
-    setTimeout(() => {
-      setVideoLoaded(true);
-    }, 6000);
-  };
 
+  // Function to load and play the video
+  const handleImageClick = () => {
+    setVideoLoaded(true);
+  };
   return (
     <Container
       className={className}
@@ -34,31 +33,31 @@ export default function Video({
       {!videoLoaded && (
         <div className="img-wrapper">
           <Image
-            src={placeholderImage.url} // Replace with your placeholder image path
+            onClick={handleImageClick}
+            src={placeholderImage} // Replace with your placeholder image path
             fill
-            alt="Video loading..."
+            alt="Video Thumbnail"
           />
+          <ButtonStyled onClick={handleImageClick}>
+            <PlayIcon />
+          </ButtonStyled>
         </div>
       )}
-      <Suspense fallback={<div>Loading...</div>}>
-        {isClient && (
-          <ReactPlayer
-            url={videoFile.url}
-            loop={true}
-            muted={false}
-            playing={true}
-            onReady={handleVideoReady}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              display: videoLoaded ? "block" : "none",
-            }}
-            width="100%"
-            height="100%"
-          />
-        )}
-      </Suspense>
+
+      {videoLoaded && (
+        <ReactPlayer
+          url={videoFile.url}
+          controls={true}
+          playing={true}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+          width="100%"
+          height="100%"
+        />
+      )}
     </Container>
   );
 }
@@ -71,6 +70,27 @@ const Container = styled.div`
     height: 100%;
     img {
       object-fit: cover;
+    }
+  }
+`;
+const ButtonStyled = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+
+  svg {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    circle {
+      stroke: white !important;
+    }
+    path {
+      fill: white;
     }
   }
 `;

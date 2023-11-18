@@ -41,7 +41,11 @@ export default function HomeServiceCard({
         <div className="outline">
           <Video
             className="video"
-            placeholderImage={placeholderImage}
+            placeholderImage={
+              placeholderImage.sizes["2048x2048"]
+                ? placeholderImage.sizes["2048x2048"]
+                : placeholderImage.sizes.large
+            }
             videoFile={videoFile}
           />
         </div>

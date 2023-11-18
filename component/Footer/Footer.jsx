@@ -53,6 +53,7 @@ export default function Footer({ optionsData, showCTA }) {
               {optionsData.member_logos.map((item, index) => {
                 return (
                   <Image
+                    key={index}
                     src={item.logo.url}
                     width={134}
                     height={40}

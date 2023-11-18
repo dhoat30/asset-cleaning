@@ -36,7 +36,11 @@ export default function WhyChooseUsSection({ data, title, subtitle }) {
               <div className="video-wrapper">
                 <Video
                   videoFile={item.video.video_file}
-                  placeholderImage={item.video.placeholder_image}
+                  placeholderImage={
+                    item.video.placeholder_image.sizes["2048x2048"]
+                      ? item.video.placeholder_image.sizes["2048x2048"]
+                      : item.video.placeholder_image.sizes.large
+                  }
                 />
               </div>
             </div>

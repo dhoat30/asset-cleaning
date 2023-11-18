@@ -7,6 +7,7 @@ import DarkButton from "../Button/DarkButton";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 
 export default function BreakSection({ data }) {
+  console.log(data);
   return (
     <Section>
       <Container maxWidth="xl" className="row">
@@ -27,7 +28,11 @@ export default function BreakSection({ data }) {
           <div className="outline">
             <Video
               className="video"
-              placeholderImage={data.placeholderImage}
+              placeholderImage={
+                data.placeholderImage.sizes["2048x2048"]
+                  ? data.placeholderImage.sizes["2048x2048"]
+                  : data.placeholderImage.sizes.large
+              }
               videoFile={data.video}
             />
           </div>

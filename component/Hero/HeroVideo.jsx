@@ -33,7 +33,11 @@ export default function HeroVideo({ data }) {
         )} */}
         <Video
           videoFile={data.videoFile}
-          placeholderImage={data.desktopImage}
+          placeholderImage={
+            data.desktopImage.sizes["2048x2048"]
+              ? data.desktopImage.sizes["2048x2048"]
+              : data.desktopImage.url
+          }
           imagePriority={true}
         />
       </Box>
