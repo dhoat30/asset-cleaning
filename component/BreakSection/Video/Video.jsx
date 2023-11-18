@@ -3,7 +3,12 @@ import ReactPlayer from "react-player";
 import Image from "next/image";
 import styled from "@emotion/styled";
 
-export default function Video({ videoFile, placeholderImage, className }) {
+export default function Video({
+  videoFile,
+  placeholderImage,
+  className,
+  imagePriority,
+}) {
   const [videoLoaded, setVideoLoaded] = useState(false); // State for tracking video load
 
   useEffect(() => {
@@ -31,6 +36,7 @@ export default function Video({ videoFile, placeholderImage, className }) {
             src={placeholderImage.url} // Placeholder image path
             layout="fill"
             alt="Video loading..."
+            priority={imagePriority}
           />
         </div>
       )}

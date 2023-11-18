@@ -34,6 +34,7 @@ export default function HeroVideo({ data }) {
         <Video
           videoFile={data.videoFile}
           placeholderImage={data.desktopImage}
+          imagePriority={true}
         />
       </Box>
       <Container maxWidth="xl" className="row">

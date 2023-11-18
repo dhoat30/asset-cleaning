@@ -27,6 +27,7 @@ export default function Hero({ data }) {
             className="mobile"
             src={data.mobileImage.url}
             alt={data.title}
+            priority={true}
             fill
           />
         )}
