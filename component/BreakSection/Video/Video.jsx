@@ -45,7 +45,7 @@ export default function Video({
           <ReactPlayer
             url={videoFile.url}
             loop={true}
-            muted={true}
+            muted={false}
             playing={true}
             onReady={handleVideoReady}
             style={{
