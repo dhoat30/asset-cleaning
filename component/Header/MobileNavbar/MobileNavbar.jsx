@@ -130,13 +130,15 @@ export default function MobileNavbar() {
                 >
                   <MenuIcon fontSize="large" />
                 </IconButton>
-                <Image
-                  src="/logo.png"
-                  width="128"
-                  height="28"
-                  alt="logo"
-                  quality={100}
-                />
+                <Link href="/">
+                  <Image
+                    src="/logo.png"
+                    width="128"
+                    height="28"
+                    alt="logo"
+                    quality={100}
+                  />
+                </Link>
               </div>
             </Box>
           </Toolbar>

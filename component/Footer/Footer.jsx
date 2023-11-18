@@ -125,6 +125,19 @@ const BoxStyled = styled(Paper)`
   .row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    @media (max-width: 1000px) {
+      gap: 40px;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 850px) {
+      gap: 40px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 600px) {
+      gap: 40px;
+      grid-template-columns: 1fr;
+    }
     .column {
       .contact-details-wrapper {
         margin: 0;
