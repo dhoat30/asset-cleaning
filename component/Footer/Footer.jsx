@@ -40,7 +40,7 @@ export default function Footer({ optionsData, showCTA }) {
                 alt="Asset Cleaning Logo"
               />
             </Link>
-            <ul className="contact-details-wrapper">
+            <div className="contact-details-wrapper">
               <IconCTA
                 phone={phone}
                 email={email}
@@ -48,7 +48,7 @@ export default function Footer({ optionsData, showCTA }) {
                 city={city}
                 postCode={postCode}
               />
-            </ul>
+            </div>
             <Box className="members-logos-wrapper">
               {optionsData.member_logos.map((item, index) => {
                 return (
@@ -141,8 +141,6 @@ const BoxStyled = styled(Paper)`
     }
     .column {
       .contact-details-wrapper {
-        margin: 0;
-        padding: 0;
       }
       .members-logos-wrapper {
         display: flex;

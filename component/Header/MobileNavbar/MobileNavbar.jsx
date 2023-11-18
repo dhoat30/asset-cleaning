@@ -132,7 +132,7 @@ export default function MobileNavbar() {
               <div className="menu-logo-wrapper">
                 <IconButton
                   size="small"
-                  aria-label="account of current user"
+                  aria-label="Hamburger Icon to Open the menu"
                   aria-controls="menu-appbar"
                   aria-haspopup="true"
                   onClick={handleDrawerOpen}
@@ -161,6 +161,7 @@ export default function MobileNavbar() {
           zIndex: "100",
         }}
         role="presentation"
+        id="menu-appbar"
       >
         <Drawer
           sx={{

@@ -12,7 +12,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
     <Section>
       <Container maxWidth="xl" className="row">
         <Box component="div" className="contact-wrapper">
-          <Link href={`tel: ${phone}`}>
+          <Link href={`tel: ${phone}`} aria-label="Phone Icon">
             <LocalPhoneRoundedIcon
               color="var(--material-theme-sys-dark-on-secondary-container)"
               //   fontSize="small"
@@ -21,7 +21,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
               {phone}
             </Typography>
           </Link>
-          <Link href={`mailto: ${email}`}>
+          <Link href={`mailto: ${email}`} aria-label="Email Icon">
             <EmailRoundedIcon
               color="var(--material-theme-sys-dark-on-secondary-container)"
               //   fontSize="small"
@@ -37,13 +37,21 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
         </Box>
         <Box component="div" className="social-wrapper">
           {facebookURL && (
-            <Link href={`${facebookURL}`} target="_blank">
+            <Link
+              href={`${facebookURL}`}
+              target="_blank"
+              aria-label="Facebook Icon"
+            >
               <FacebookRoundedIcon color="var(--material-theme-sys-dark-on-secondary-container)" />
             </Link>
           )}
 
           {youtubeURL && (
-            <Link href={`${youtubeURL}`} target="_blank">
+            <Link
+              href={`${youtubeURL}`}
+              target="_blank"
+              aria-label="Youtube Icon"
+            >
               <YouTubeIcon color="var(--material-theme-sys-dark-on-secondary-container)" />
             </Link>
           )}
