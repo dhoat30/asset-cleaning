@@ -15,6 +15,7 @@ import Link from "next/link";
 import ArrowIcon from "../../Icons/ArrowIcon";
 import { headerLinks } from "@/utils/headerLinks";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 const drawerWidth = 300;
 
 const DrawerHeader = style("div")(({ theme }) => ({
@@ -31,6 +32,11 @@ export default function MobileNavbar() {
   const [open, setOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(-1);
   const menuRef = useRef(null);
+  const pathname = usePathname();
+  // Function to check if the path matches the current page
+  const isActive = (path) => {
+    return pathname === path;
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -62,7 +68,7 @@ export default function MobileNavbar() {
       <li
         className="flex-auto text-center relative parent-list-item"
         key={index}
-
+        onClick={pathname === item.url ? handleDrawerClose : null}
         // onMouseLeave={() => setShowMenu({ [index]: false })}
       >
         <Link
@@ -88,7 +94,11 @@ export default function MobileNavbar() {
                   key={subIndex + 100}
                   style={{ borderColor: "rgba(255,255,255,0.1)" }}
                 />
-                <Link href={subLink.url} className="child-link">
+                <Link
+                  href={subLink.url}
+                  className="child-link"
+                  onClick={handleDrawerClose}
+                >
                   {subLink.label}
                 </Link>
               </li>
