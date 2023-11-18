@@ -25,7 +25,7 @@ export default function Hero({ data }) {
         {data.mobileImage && matches && (
           <Image
             className="mobile"
-            src={data.mobileImage.url}
+            src={data.mobileImage.sizes.medium_large}
             alt={data.title}
             priority={true}
             fill

@@ -1,25 +1,26 @@
 import React, { useState, useEffect, Suspense } from "react";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import Image from "next/image";
 import styled from "@emotion/styled";
 
 export default function Video({
+  data,
   videoFile,
   placeholderImage,
   className,
-  imagePriority,
 }) {
-  const [videoLoaded, setVideoLoaded] = useState(false); // State for tracking video load
+  const [isClient, setIsClient] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false); // New state for tracking video load
 
   useEffect(() => {
-    // Set a timeout to delay video loading
-    const timer = setTimeout(() => {
+    setIsClient(true);
+  }, []);
+  // Function to call when video is ready
+  const handleVideoReady = () => {
+    setTimeout(() => {
       setVideoLoaded(true);
     }, 6000);
-
-    // Clear the timer if the component is unmounted before the timer finishes
-    return () => clearTimeout(timer);
-  }, []);
+  };
 
   return (
     <Container
@@ -33,24 +34,25 @@ export default function Video({
       {!videoLoaded && (
         <div className="img-wrapper">
           <Image
-            src={placeholderImage.url} // Placeholder image path
-            layout="fill"
+            src={placeholderImage.url} // Replace with your placeholder image path
+            fill
             alt="Video loading..."
-            priority={imagePriority}
           />
         </div>
       )}
       <Suspense fallback={<div>Loading...</div>}>
-        {videoLoaded && (
+        {isClient && (
           <ReactPlayer
             url={videoFile.url}
             loop={true}
-            muted={false}
+            muted={true}
             playing={true}
+            onReady={handleVideoReady}
             style={{
               position: "absolute",
               top: 0,
               left: 0,
+              display: videoLoaded ? "block" : "none",
             }}
             width="100%"
             height="100%"
@@ -60,19 +62,13 @@ export default function Video({
     </Container>
   );
 }
-
 const Container = styled.div`
-  position: relative;
-  paddingtop: "56.25%";
-  width: "100%";
-
   .img-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
     img {
       object-fit: cover;
     }
