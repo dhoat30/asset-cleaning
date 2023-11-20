@@ -24,7 +24,6 @@ export default function Footer({ optionsData, showCTA }) {
   const street = optionsData.contact_info.street_address;
   const city = optionsData.contact_info.city;
   const postCode = optionsData.contact_info.post_code;
-  console.log(optionsData.member_logos[0].logo);
   return (
     <>
       {showCTA && <FooterCTA data={ctaData} />}

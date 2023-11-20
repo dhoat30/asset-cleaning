@@ -18,7 +18,7 @@ export default function ContactForm({ className }) {
     const [isSuccess, setIsSuccess] = useState(false)
     const [error, setError] = useState(false)
     const [newSubmission, setNewSubmission] = useState(false)
-
+    console.log(isSuccess)
 
     const handleChange = (id, value, isSelectMultiple) => {
         let updatedValue = value;
@@ -78,12 +78,19 @@ export default function ContactForm({ className }) {
             headers: { 'Content-Type': 'application/json' },
             data: formData
         };
+        const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Message:${formData.message}`
+
         // mailgun config
         var configSendMail = {
             method: 'post',
             url: '/api/sendmail',
             headers: { 'Content-Type': 'application/json' },
-            data: formData
+            data: {
+                mailText: mailText,
+                formName: formData.formName,
+                emailTo: "designer@webduel.co.nz",
+                fromEmail: formData.email,
+            }
         };
 
         Promise.all([axios(configHubspot), axios(configSendMail)])
@@ -92,6 +99,7 @@ export default function ContactForm({ className }) {
                 // responses[0] is the response from create-hubspot-contact
                 // responses[1] is the response from sendmail
                 if (responses[0].status === 200) {
+                    console.log('sucesss')
                     setIsLoading(false)
                     setIsSuccess(true)
                     setNewSubmission(true)
@@ -101,7 +109,7 @@ export default function ContactForm({ className }) {
 
                 }
                 else {
-
+                    console.log('error')
                     setIsLoading(false)
                     setIsSuccess(false)
                     setError(true)

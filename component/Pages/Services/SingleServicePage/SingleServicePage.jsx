@@ -11,6 +11,7 @@ import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSectio
 import styled from "@emotion/styled";
 import React from "react";
 import { Container } from "@mui/material";
+import USP from "@/component/USP/USP";
 
 export default function SingleServicePage({ data, whyChooseUsData }) {
   const heroData = {
@@ -97,7 +98,6 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
       )}
 
       {layoutSection}
-
       {whyChooseUsData.acf.hero_section?.title && (
         <WhyChooseUsSection
           data={whyChooseUsData.acf.why_choose_us_cards}

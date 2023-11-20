@@ -13,6 +13,7 @@ function LoadingBtn({
   newSubmission,
   id,
 }) {
+  console.log(isSuccess);
   let labelText = children ? children : "Submit";
   return (
     <LoadingButtonStyle
@@ -27,8 +28,9 @@ function LoadingBtn({
       variant="contained"
       disableElevation
       loading={isLoading}
+      disabled={isSuccess}
     >
-      {isSuccess && !newSubmission ? <DoneIcon /> : labelText}
+      {isSuccess && newSubmission ? <DoneIcon /> : labelText}
     </LoadingButtonStyle>
   );
 }

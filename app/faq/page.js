@@ -1,14 +1,15 @@
 import Image from 'next/image'
-import { getAllCommercialData, getOptions, getPageData } from '@/utils/fetchData'
+import { getAllResidentialData, getOptions, getPageData } from '@/utils/fetchData'
 import Header from '@/component/Header/Header'
 import Footer from '@/component/Footer/Footer'
 import ServicesPage from '@/component/Pages/Services/ServicesPage'
+import FaqPage from '@/component/Pages/FaqPage/FaqPage'
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
     // const id = params.id
 
     // fetch data
-    const data = await getPageData('commercial-cleaning')
+    const data = await getPageData('faq')
 
     // optionally access and extend (rather than replace) parent metadata
     // const previousImages = (await parent).openGraph?.images || []
@@ -35,13 +36,13 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 export default async function Home() {
-    const data = await getPageData('commercial-cleaning')
     const optionsData = await getOptions()
-    const allServicesData = await getAllCommercialData()
+    const data = await getPageData('faq')
+    const whyChooseUsData = await getPageData('why-choose-us-commercial')
     return (
         <main>
             <Header optionsData={optionsData} />
-            <ServicesPage data={data[0]} testimonialData={optionsData} allServicesData={allServicesData} />
+            <FaqPage data={data[0]} testimonialData={optionsData} whyChooseUsData={whyChooseUsData[0]} faqDataArr={optionsData.faq} />
             <Footer optionsData={optionsData} showCTA={true} />
         </main>
     )

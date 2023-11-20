@@ -34,7 +34,7 @@ const Section = styled.section`
     .title-wrapper {
       padding-top: 160px;
       padding-bottom: 160px;
-      border-radius: 0 0 40px 0;
+      border-radius: 0 40px 40px 0;
 
       background: var(
         --material-theme-sys-light-on-primary-fixed-variant,

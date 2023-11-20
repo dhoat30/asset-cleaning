@@ -10,7 +10,7 @@ export const contactFormData = [
         errorMessage: 'First name should be at least 3 characters long'
     },
     {
-        id: 'lastname', label: 'Last name', type: 'text', required: true, autoComplete: "family-name", validation: value => {
+        id: 'lastName', label: 'Last name', type: 'text', required: true, autoComplete: "family-name", validation: value => {
             if (typeof value === 'string') {
                 return value.trim().length > 1;
             }

@@ -15,7 +15,7 @@ export const headerLinks = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         label: "Residential Cleaning",
         url: "/residential",
         subLinks: [
@@ -32,6 +32,11 @@ export const headerLinks = [
     },
 
 
+    {
+        id: 5,
+        label: "Faq",
+        url: "/faq"
+    },
     {
         id: 6,
         label: "Contact",

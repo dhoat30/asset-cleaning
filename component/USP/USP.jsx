@@ -14,7 +14,7 @@ export default function USP({ className }) {
   return (
     <>
       <ContainerStyled>
-        <Container maxWidth="xl" component="ul" className="row">
+        <Container maxWidth="xl" component="div" className="row">
           <Paper variant="outlined">
             <InventoryOutlinedIcon />
             <Typography

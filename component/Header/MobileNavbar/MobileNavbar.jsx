@@ -117,7 +117,7 @@ export default function MobileNavbar() {
   return (
     <>
       <AppBarStyled
-        position="static"
+        position="fixed"
         sx={{
           display: {
             xs: "block",

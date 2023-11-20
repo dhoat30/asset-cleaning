@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: var(--material-theme-sys-light-surface);
+  scroll-behavior: smooth;
 }
 
 a {
