@@ -114,4 +114,7 @@ export default function ResidentialSingleServicePage({
 const FormWrapper = styled(Container)`
   position: relative;
   top: -56px;
+  @media (max-width: 600px) {
+    top: 32px;
+  }
 `;

@@ -181,7 +181,7 @@ const Container = styled.div`
     padding: 16px 32px; 
     border-radius: 16px; 
     @media (max-width: 600px) {
-      padding: 8px 8px;
+      padding: 32px 16px;
     }
     .react-datepicker-wrapper{ 
         width: 100%; 
