@@ -25,5 +25,5 @@ export const quickLinks = [
     { label: "Residential Cleaning", url: "/residential" },
     { label: "Contact", url: "/contact" },
     { label: "Privacy Policy", url: "/privacy-policy" },
-    { label: "Terms and Conditions", url: "/terms-conditions" },
+    { label: "Terms and Conditions", url: "/terms-and-conditions" },
 ] 

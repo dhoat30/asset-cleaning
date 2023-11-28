@@ -31,12 +31,12 @@ const Container = styled.section`
     align-items: center;
     justify-content: center;
     z-index: 110;
-    background: rgb(44, 38, 20);
+    background:#0D2000; 
   }
 
   .circle {
     position: absolute;
-    border: 8px solid var(--material-theme-sys-light-outline, #7d7767);
+    border: 8px solid var(--material-theme-sys-light-outline);
     border-radius: 50%;
     animation: expand 3s infinite ease-in-out;
   }

@@ -90,7 +90,9 @@ const BoxStyled = styled(Box)`
     .content-wrapper {
       h1 {
         color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+        text-transform: capitalize;
       }
+
       h2 {
         margin-top: 8px;
         color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
