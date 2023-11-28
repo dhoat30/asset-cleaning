@@ -6,10 +6,9 @@ import Link from "next/link";
 import DarkButton from "../Button/DarkButton";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 
-export default function BreakSection({ data }) {
-  console.log(data);
+export default function BreakSection({ data, className }) {
   return (
-    <Section>
+    <Section className={className}>
       <Container maxWidth="xl" className="row">
         <Box className="content-wrapper">
           <Typography variant="h3" component="h3">
@@ -18,11 +17,13 @@ export default function BreakSection({ data }) {
           <Typography variant="h6" component="p">
             {data.description}
           </Typography>
-          <Link href={data.cta.link}>
-            <DarkButton icon={CalendarMonthRoundedIcon} startIcon={true}>
-              {data.cta.label}
-            </DarkButton>
-          </Link>
+          {data.cta.link && (
+            <Link href={data.cta.link}>
+              <DarkButton icon={CalendarMonthRoundedIcon} startIcon={true}>
+                {data.cta.label}
+              </DarkButton>
+            </Link>
+          )}
         </Box>
         <Box className="video-wrapper">
           <div className="outline">

@@ -1,6 +1,6 @@
 import Footer from '@/component/Footer/Footer'
 import Header from '@/component/Header/Header'
-import HtmlPageTemplate from '@/component/HtmlPageTemplate/HtmlPageTemplate'
+import HtmlPageTemplate from '@/component/Pages/HtmlPageTemplate/HtmlPageTemplate'
 import { getPageData, getOptions } from '@/utils/fetchData'
 
 

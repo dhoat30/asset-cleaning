@@ -8,7 +8,7 @@ import { Typography } from "@mui/material";
 import PhoneCircleIcon from "../Icons/PhoneCircleIcon";
 import Link from "next/link";
 import EmailCircleIcon from "../Icons/EmailCircleIcon";
-
+import LocationCircleIcon from "../Icons/LocationCircleIcon";
 export default function IconCTA({ phone, email, street, city, postCode }) {
   return (
     <>
@@ -25,7 +25,7 @@ export default function IconCTA({ phone, email, street, city, postCode }) {
         </Typography>
       </Container>
       <ListStyled>
-        <EmailCircleIcon />
+        <LocationCircleIcon />
         <div>
           <Typography variant="body1" component="span">
             {street}

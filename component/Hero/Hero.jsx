@@ -56,6 +56,9 @@ export default function Hero({ data }) {
   );
 }
 const BoxStyled = styled(Box)`
+  @media (max-width: 1200px) {
+    margin-top: 100px;
+  }
   .image-wrapper {
     position: relative;
     width: 100%;
@@ -83,7 +86,8 @@ const BoxStyled = styled(Box)`
     transform: translateY(-50%);
     position: absolute;
     @media (max-width: 600px) {
-      top: -100px;
+      bottom: 100px;
+      margin-bottom: -100px;
       position: relative;
       transform: translateY(0%);
     }

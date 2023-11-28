@@ -2,13 +2,14 @@
 import React from "react";
 import HeroVideo from "@/component/Hero/HeroVideo";
 import Hero from "@/component/Hero/Hero";
-import HomeServiceCard from "./HomeServiceCard";
+import HomeServiceCard from "../HomePage/HomeServiceCard";
 import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import TestimonialSection from "@/component/TestimonialSection/TestimonialSection";
 import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSection";
 import USP from "@/component/USP/USP";
-export default function HomePage({ data, testimonialData, whyChooseUsData }) {
+import BreakSection from "@/component/BreakSection/BreakSection";
+export default function AboutUs({ data, testimonialData, whyChooseUsData }) {
   const heroData = {
     title: data.acf.hero_section.title,
     description: data?.acf.hero_section.description,
@@ -18,24 +19,19 @@ export default function HomePage({ data, testimonialData, whyChooseUsData }) {
     videoID: data.acf.hero_section.video_id,
     videoFile: data.acf.hero_section.video_file,
   };
-  const serviceCards = data.acf.services.map((item, index) => {
-    return (
-      <HomeServiceCard
-        key={index}
-        title={item.title}
-        subtitle={item.subtitle}
-        videoFile={item.video.video_file}
-        placeholderImage={item.video.placeholder_image}
-        cta1={item.cta_1}
-        cta2={item.cta_2}
-      />
-    );
-  });
+  const sectionBreakData = {
+    title: data?.acf.section_break.title,
+    description: data?.acf.section_break.description,
+    placeholderImage: data?.acf.section_break.video_section.placeholder_image,
+    video: data?.acf.section_break.video_section.video_file,
+    cta: data?.acf.section_break.cta,
+  };
+
   return (
     <>
       <Hero data={heroData} />
       <USP />
-      <ServiceCardsWrapper maxWidth="xl">{serviceCards}</ServiceCardsWrapper>
+      <BreakSection data={sectionBreakData} />
       <TestimonialSection data={testimonialData.testimonial} />
       {whyChooseUsData.acf.hero_section?.title && (
         <WhyChooseUsSection

@@ -125,9 +125,11 @@ const BoxStyled = styled(Paper)`
   .row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
-    @media (max-width: 1000px) {
+    gap: 80px;
+    @media (max-width: 1200px) {
       gap: 40px;
+    }
+    @media (max-width: 1000px) {
       grid-template-columns: 1fr 1fr 1fr;
     }
     @media (max-width: 850px) {

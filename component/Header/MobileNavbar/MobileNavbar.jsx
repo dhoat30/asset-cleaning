@@ -194,6 +194,7 @@ export default function MobileNavbar() {
   );
 }
 const AppBarStyled = styled(AppBar)`
+  top: 40px;
   .menu-logo-wrapper {
     display: flex;
     align-items: center;

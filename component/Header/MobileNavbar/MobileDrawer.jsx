@@ -10,6 +10,7 @@ export default function MobileDrawer({ anchorElNav, handleCloseNavMenu }) {
   const [showMenu, setShowMenu] = useState(-1);
   const toggleDropdown = (event, index) => {
     event.preventDefault();
+    s;
     setShowMenu(index === showMenu ? -1 : index);
   };
   useEffect(() => {

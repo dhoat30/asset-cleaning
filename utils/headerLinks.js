@@ -38,6 +38,11 @@ export const headerLinks = [
         url: "/faq"
     },
     {
+        id: 7,
+        label: "About Us",
+        url: "/about-us"
+    },
+    {
         id: 6,
         label: "Contact",
         url: "/contact"

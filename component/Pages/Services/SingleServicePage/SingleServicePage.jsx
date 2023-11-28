@@ -111,4 +111,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
 const FormWrapper = styled(Container)`
   position: relative;
   top: -56px;
+  @media (max-width: 600px) {
+    top: 32px;
+  }
 `;

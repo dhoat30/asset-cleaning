@@ -199,23 +199,10 @@ const AppBarContainer = styled(AppBar)`
       align-items: center;
       padding: 8px 4px;
       color: var(--material-theme-sys-dark-on-primary, #1b3700);
-      /* &:hover {
-        color: var(--material-theme-sys-dark-on-surface);
-        svg {
-          color: var(--material-theme-sys-dark-on-surface);
-        }
-      } */
     }
     .parent-link.active {
       border-bottom: 2px solid
         var(--material-theme-sys-dark-on-primary, #1b3700);
-      /* color: red;
-      &:hover {
-        color: red;
-        svg {
-          color: red;
-        }
-      } */
     }
   }
 

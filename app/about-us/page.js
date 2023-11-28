@@ -4,6 +4,7 @@ import Header from '@/component/Header/Header'
 import Footer from '@/component/Footer/Footer'
 import ServicesPage from '@/component/Pages/Services/ServicesPage'
 import FaqPage from '@/component/Pages/FaqPage/FaqPage'
+import AboutUs from '@/component/Pages/AboutUsPage/AboutUs'
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
     // const id = params.id
@@ -42,7 +43,7 @@ export default async function Page() {
     return (
         <main>
             <Header optionsData={optionsData} />
-            <FaqPage data={data[0]} testimonialData={optionsData} whyChooseUsData={whyChooseUsData[0]} faqDataArr={optionsData.faq} />
+            <AboutUs data={data[0]} testimonialData={optionsData} whyChooseUsData={whyChooseUsData[0]} />
             <Footer optionsData={optionsData} showCTA={true} />
         </main>
     )

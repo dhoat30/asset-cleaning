@@ -63,6 +63,13 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
 const Section = styled.section`
   background: var(--material-theme-sys-dark-secondary-container, #004c69);
   padding: 8px 0;
+  @media (max-width: 1200px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
   a {
     color: var(--material-theme-sys-dark-on-secondary-container);
     display: flex;

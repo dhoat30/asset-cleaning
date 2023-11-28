@@ -27,6 +27,7 @@ export default function BookAppointment({ data, testimonialData }) {
 }
 const ContainerStyled = styled(Container)`
   display: grid;
+
   grid-template-columns: 1fr 1fr;
   @media (max-width: 900px) {
     grid-template-columns: 1fr;

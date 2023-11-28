@@ -19,6 +19,7 @@ export default function DarkButton({
       }}
       variant="contained"
       startIcon={startIcon && <Icon />}
+      size="large"
     >
       {children}
     </ButtonStyled>
