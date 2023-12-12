@@ -6,7 +6,7 @@ import FormatQuoteRoundedIcon from "@mui/icons-material/FormatQuoteRounded";
 import TestimonialCarousel from "./TestimonialCarousel";
 export default function TestimonialSection({ data }) {
   return (
-    <Section>
+    <Section id="testimonial">
       <Box className="row">
         <div className="title-wrapper">
           <FormatQuoteRoundedIcon className="icon" />
