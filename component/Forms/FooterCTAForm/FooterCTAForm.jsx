@@ -75,7 +75,7 @@ export default function FooterCTAForm({ title, description, formName }) {
       data: {
         mailText: mailText,
         formName: formData.formName,
-        emailTo: "designer@webduel.co.nz",
+        emailTo: "admin@assetcleaning.co.nz",
         fromEmail: formData.email,
       },
     };

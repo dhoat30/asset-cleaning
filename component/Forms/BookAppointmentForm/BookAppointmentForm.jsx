@@ -79,7 +79,7 @@ export default function BookAppointmentForm({ showTitle }) {
       data: {
         mailText: mailText,
         formName: formData.formName,
-        emailTo: "designer@webduel.co.nz",
+        emailTo: "admin@assetcleaning.co.nz",
         fromEmail: formData.email,
       },
     };
