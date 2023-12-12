@@ -10,9 +10,15 @@ export default function CheckListSection({
   subtitle,
   checklistsArray,
   cta,
+  sectionID,
 }) {
   return (
-    <ContainerStyled maxWidth="xl" className="row">
+    <ContainerStyled
+      component="section"
+      maxWidth="xl"
+      className="row"
+      id={sectionID}
+    >
       <Box className="content-wrapper">
         <Typography variant="h6" component="p" align="center">
           {subtitle}

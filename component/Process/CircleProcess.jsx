@@ -1,9 +1,14 @@
 import { Box, Container, Paper, Typography } from "@mui/material";
 import React from "react";
 import styled from "@emotion/styled";
-export default function CircleProcess({ title, subtitle, cardsArray }) {
+export default function CircleProcess({
+  title,
+  subtitle,
+  cardsArray,
+  sectionID,
+}) {
   return (
-    <ContainerStyled maxWidth="xl">
+    <ContainerStyled component="section" maxWidth="xl" id={sectionID}>
       <Box className="head-wrapper">
         <Typography variant="h6" component="p" align="center">
           {subtitle}

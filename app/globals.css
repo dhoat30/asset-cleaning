@@ -5,7 +5,9 @@ body {
   background: var(--material-theme-sys-light-surface);
   scroll-behavior: smooth;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a {
   text-decoration: none;
 }

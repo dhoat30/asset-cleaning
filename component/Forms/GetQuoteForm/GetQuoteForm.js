@@ -77,12 +77,19 @@ export default function GetQuoteForm({ className, showTitle }) {
             headers: { 'Content-Type': 'application/json' },
             data: formData
         };
+        const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastname} \n Email address: ${formData.email} \n Phone Number: ${formData.phone} \n Property Type: ${formData.propertyType} \n Service Type: ${formData.service}`
+
         // mailgun config
         var configSendMail = {
             method: 'post',
             url: '/api/sendmail',
             headers: { 'Content-Type': 'application/json' },
-            data: formData
+            data: {
+                mailText: mailText,
+                formName: formData.formName,
+                emailTo: "designer@webduel.co.nz",
+                fromEmail: formData.email,
+            }
         };
 
         Promise.all([axios(configHubspot), axios(configSendMail)])

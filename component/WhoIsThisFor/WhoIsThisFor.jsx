@@ -6,9 +6,20 @@ import DarkButton from "../Button/DarkButton";
 import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import CardComponent from "../Cards/Card";
-export default function WhoIsThisFor({ title, subtitle, cta, cardsArray }) {
+export default function WhoIsThisFor({
+  title,
+  subtitle,
+  cta,
+  cardsArray,
+  sectionID,
+}) {
   return (
-    <ContainerStyled maxWidth="xl" className="row">
+    <ContainerStyled
+      maxWidth="xl"
+      className="row"
+      id={sectionID}
+      component="section"
+    >
       <Box className="content-wrapper">
         <Typography
           variant="h6"

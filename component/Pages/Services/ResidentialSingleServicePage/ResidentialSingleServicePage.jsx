@@ -12,6 +12,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Container } from "@mui/material";
 import GetQuoteForm from "@/component/Forms/GetQuoteForm/GetQuoteForm";
+import SubNav from "@/component/Header/SubNav/SubNav";
 export default function ResidentialSingleServicePage({
   data,
   whyChooseUsData,
@@ -32,6 +33,7 @@ export default function ResidentialSingleServicePage({
     video: data?.acf.section_break.video_section.video_file,
     cta: data?.acf.section_break.cta,
   };
+  const subNavDataArr = data?.acf.flexible_content;
 
   const layoutSection = data?.acf?.flexible_content
     ? data.acf.flexible_content.map((item, index) => {
@@ -42,6 +44,7 @@ export default function ResidentialSingleServicePage({
               title={item.title_section.title}
               subtitle={item.title_section.subtitle}
               cardsArray={item.cards}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "benefits_of_cleaning") {
@@ -51,6 +54,7 @@ export default function ResidentialSingleServicePage({
               title={item.title_section.title}
               subtitle={item.title_section.subtitle}
               benefitCardsArray={item.cards}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "cleaning_checklist") {
@@ -61,6 +65,7 @@ export default function ResidentialSingleServicePage({
               subtitle={item.title_section.subtitle}
               checklistsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "cleaning_service_explanation") {
@@ -72,6 +77,7 @@ export default function ResidentialSingleServicePage({
               description={item.title_section.description}
               cardsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "who_is_this_service_for") {
@@ -82,6 +88,7 @@ export default function ResidentialSingleServicePage({
               subtitle={item.title_section.subtitle}
               cardsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         }
@@ -90,6 +97,7 @@ export default function ResidentialSingleServicePage({
 
   return (
     <>
+      <SubNav dataArr={subNavDataArr} />
       {heroData.title && <Hero data={heroData} />}
       <FormWrapper maxWidth="md">
         <GetQuoteForm showTitle={true} />

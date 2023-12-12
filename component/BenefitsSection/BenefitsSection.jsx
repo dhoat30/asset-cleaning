@@ -12,9 +12,15 @@ export default function BenefitsSection({
   subtitle,
   cta,
   benefitCardsArray,
+  sectionID,
 }) {
   return (
-    <ContainerStyled maxWidth="xl" className="row">
+    <ContainerStyled
+      component="section"
+      maxWidth="xl"
+      className="row"
+      id={sectionID}
+    >
       <Box className="content-wrapper">
         <Typography
           variant="h6"

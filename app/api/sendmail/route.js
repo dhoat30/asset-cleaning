@@ -3,7 +3,7 @@ import formData from 'form-data';
 import { NextResponse } from 'next/server'
 import Mailgun from 'mailgun.js';
 const API_KEY = process.env.MAILGUN_API_KEY;
-const DOMAIN = 'noreply.webduel.co.nz';
+const DOMAIN = process.env.MAILGUN_DOMAIN;
 const mailgun = new Mailgun(formData);
 const client = mailgun.client({ username: 'api', key: API_KEY });
 
@@ -13,7 +13,7 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
     const { emailTo, fromEmail, formName, mailText } = await req.json();
-    console.log("this is email api")
+    console.log(DOMAIN)
     const messageData = {
         from: fromEmail,
         to: emailTo,

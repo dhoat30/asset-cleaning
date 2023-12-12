@@ -5,19 +5,17 @@ import { appointmentFormData } from "./appointmentFormData";
 import Input from "../InputFields/Input";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
-import TextField from "@mui/material/TextField";
+
 import CustomDatePicker from "../InputFields/DatePicker";
 import LoadingBtn from "@/component/Button/LoadingBtn";
+import axios from "axios";
 export default function BookAppointmentForm({ showTitle }) {
   const [formData, setFormData] = useState({
     typeOfService: [],
-    formName: "Contact Form",
+    formName: "Site Assessment Form",
     showTitle,
   });
   const [errors, setErrors] = useState({});
-  const [activeStep, setActiveStep] = React.useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -63,63 +61,59 @@ export default function BookAppointmentForm({ showTitle }) {
     }
 
     setIsLoading(true);
-    // Send an event to GA4 manually
-    if (typeof window !== "undefined") {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "contact_form", // The custom event name you configured in GTM
-        event_category: "form_submit",
-        event_label: "Speed Checker Form Submitted",
+
+    // hubspot config
+    var configHubspot = {
+      method: "post",
+      url: "/api/create-hubspot-contact",
+      headers: { "Content-Type": "application/json" },
+      data: formData,
+    };
+    const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Phone:${formData.phone} \n Site Assessment Date & Time:${startDate}`;
+
+    // mailgun config
+    var configSendMail = {
+      method: "post",
+      url: "/api/sendmail",
+      headers: { "Content-Type": "application/json" },
+      data: {
+        mailText: mailText,
+        formName: formData.formName,
+        emailTo: "designer@webduel.co.nz",
+        fromEmail: formData.email,
+      },
+    };
+
+    Promise.all([axios(configHubspot), axios(configSendMail)])
+      .then(function (responses) {
+        console.log(responses);
+        // responses[0] is the response from create-hubspot-contact
+        // responses[1] is the response from sendmail
+        console.log(responses);
+        if (responses[0].status === 200) {
+          console.log("sucesss");
+          setIsLoading(false);
+          setIsSuccess(true);
+          setNewSubmission(true);
+          // set initial state to empty string
+          setError(false);
+        } else {
+          console.log("error");
+          setIsLoading(false);
+          setIsSuccess(false);
+          setError(true);
+          setNewSubmission(false);
+        }
+
+        // Other success logic
+      })
+      .catch(function (error) {
+        console.log(error);
+        setIsLoading(false);
+        setIsSuccess(false);
+        setError(true);
+        setNewSubmission(false);
       });
-    }
-
-    // // hubspot config
-    // var configHubspot = {
-    //     method: 'post',
-    //     url: '/api/create-hubspot-contact',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     data: formData
-    // };
-    // // mailgun config
-    // var configSendMail = {
-    //     method: 'post',
-    //     url: '/api/sendmail',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     data: formData
-    // };
-
-    // Promise.all([axios(configHubspot), axios(configSendMail)])
-    //     .then(function (responses) {
-    //         console.log(responses)
-    //         // responses[0] is the response from create-hubspot-contact
-    //         // responses[1] is the response from sendmail
-    //         if (responses[0].status === 200) {
-    //             setIsLoading(false)
-    //             setIsSuccess(true)
-    //             setNewSubmission(true)
-    //             // set initial state to empty string
-    //             setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    //             setError(false)
-
-    //         }
-    //         else {
-
-    //             setIsLoading(false)
-    //             setIsSuccess(false)
-    //             setError(true)
-    //             setNewSubmission(false)
-
-    //         }
-
-    //         // Other success logic
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //         setIsLoading(false)
-    //         setIsSuccess(false)
-    //         setError(true)
-    //         setNewSubmission(false)
-    //     });
   };
   // loop over all the input fields
   const formInputs = appointmentFormData.map((field, index) => {

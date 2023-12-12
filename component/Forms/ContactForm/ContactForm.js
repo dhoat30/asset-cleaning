@@ -9,11 +9,9 @@ import styled from "@emotion/styled";
 import axios from "axios";
 import { Alert } from "@mui/material";
 
-
 export default function ContactForm({ className }) {
     const [formData, setFormData] = useState({ typeOfService: [], formName: "Contact Form" });
     const [errors, setErrors] = useState({});
-    const [activeStep, setActiveStep] = React.useState(0);
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [error, setError] = useState(false)
@@ -61,15 +59,7 @@ export default function ContactForm({ className }) {
 
 
         setIsLoading(true)
-        // Send an event to GA4 manually
-        if (typeof window !== 'undefined') {
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                'event': 'contact_form', // The custom event name you configured in GTM
-                'event_category': 'form_submit',
-                'event_label': 'Speed Checker Form Submitted'
-            });
-        }
+
 
         // hubspot config
         var configHubspot = {
@@ -98,13 +88,13 @@ export default function ContactForm({ className }) {
                 console.log(responses)
                 // responses[0] is the response from create-hubspot-contact
                 // responses[1] is the response from sendmail
+                console.log(responses)
                 if (responses[0].status === 200) {
                     console.log('sucesss')
                     setIsLoading(false)
                     setIsSuccess(true)
                     setNewSubmission(true)
                     // set initial state to empty string 
-                    setActiveStep((prevActiveStep) => prevActiveStep + 1);
                     setError(false)
 
                 }

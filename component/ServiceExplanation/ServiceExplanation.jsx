@@ -12,9 +12,10 @@ export default function ServiceExplanation({
   cta,
   cardsArray,
   description,
+  sectionID,
 }) {
   return (
-    <BoxStyled>
+    <BoxStyled id={sectionID} component="section">
       <ContainerStyled className="row">
         <Box className="content-wrapper">
           <Typography variant="h6" component="h4" className="subtitle">

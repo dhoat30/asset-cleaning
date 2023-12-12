@@ -153,7 +153,11 @@ function DesktopNavbar() {
         <Container maxWidth="xl">
           <Toolbar
             disableGutters
-            sx={{ display: "flex", justifyContent: "space-between" }}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
             {/* logo  */}
             <Link href="/">

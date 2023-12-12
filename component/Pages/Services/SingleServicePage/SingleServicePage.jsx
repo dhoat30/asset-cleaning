@@ -12,6 +12,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Container } from "@mui/material";
 import USP from "@/component/USP/USP";
+import SubNav from "@/component/Header/SubNav/SubNav";
 
 export default function SingleServicePage({ data, whyChooseUsData }) {
   const heroData = {
@@ -30,7 +31,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
     video: data?.acf.section_break.video_section.video_file,
     cta: data?.acf.section_break.cta,
   };
-
+  const subNavDataArr = data?.acf.flexible_content;
   const layoutSection = data?.acf?.flexible_content
     ? data.acf.flexible_content.map((item, index) => {
         if (item.acf_fc_layout === "cleaning_process") {
@@ -40,6 +41,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
               title={item.title_section.title}
               subtitle={item.title_section.subtitle}
               cardsArray={item.cards}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "benefits_of_cleaning") {
@@ -49,6 +51,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
               title={item.title_section.title}
               subtitle={item.title_section.subtitle}
               benefitCardsArray={item.cards}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "cleaning_checklist") {
@@ -59,6 +62,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
               subtitle={item.title_section.subtitle}
               checklistsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "cleaning_service_explanation") {
@@ -70,6 +74,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
               description={item.title_section.description}
               cardsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         } else if (item.acf_fc_layout === "who_is_this_service_for") {
@@ -80,6 +85,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
               subtitle={item.title_section.subtitle}
               cardsArray={item.cards}
               cta={item.title_section.cta}
+              sectionID={item.acf_fc_layout}
             />
           );
         }
@@ -88,6 +94,7 @@ export default function SingleServicePage({ data, whyChooseUsData }) {
 
   return (
     <>
+      <SubNav dataArr={subNavDataArr} />
       {heroData.title && <Hero data={heroData} />}
       <FormWrapper maxWidth="md">
         {heroData.title && <BookAppointmentForm showTitle={true} />}
