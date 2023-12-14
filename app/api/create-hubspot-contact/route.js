@@ -20,7 +20,7 @@ export async function POST(req, res) {
     var postOptions = {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer pat-na1-5f83c730-3053-4c97-85ec-6b6305013743`,
+            'Authorization': `Bearer ${process.env.HUBSPOT_API_KEY}`,
             'Content-Type': 'application/json'
         },
         body: payload,
@@ -29,7 +29,7 @@ export async function POST(req, res) {
     var patchOptions = {
         method: 'PATCH',
         headers: {
-            'Authorization': `Bearer pat-na1-5f83c730-3053-4c97-85ec-6b6305013743`,
+            'Authorization': `Bearer ${process.env.HUBSPOT_API_KEY}`,
             'Content-Type': 'application/json'
         },
         body: payload,

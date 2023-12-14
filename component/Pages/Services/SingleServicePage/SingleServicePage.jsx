@@ -11,7 +11,6 @@ import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSectio
 import styled from "@emotion/styled";
 import React from "react";
 import { Container } from "@mui/material";
-import USP from "@/component/USP/USP";
 import SubNav from "@/component/Header/SubNav/SubNav";
 
 export default function SingleServicePage({ data, whyChooseUsData }) {

@@ -12,7 +12,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
     <Section>
       <Container maxWidth="xl" className="row">
         <Box component="div" className="contact-wrapper">
-          <Link href={`tel: ${phone}`} aria-label="Phone Icon">
+          <Link href={`tel: ${phone}`} aria-label="Phone Icon" role="link">
             <LocalPhoneRoundedIcon
               color="var(--material-theme-sys-dark-on-secondary-container)"
               //   fontSize="small"
@@ -21,7 +21,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
               {phone}
             </Typography>
           </Link>
-          <Link href={`mailto: ${email}`} aria-label="Email Icon">
+          <Link href={`mailto: ${email}`} aria-label="Email Icon" role="link">
             <EmailRoundedIcon
               color="var(--material-theme-sys-dark-on-secondary-container)"
               //   fontSize="small"

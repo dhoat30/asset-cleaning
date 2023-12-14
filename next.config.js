@@ -18,7 +18,7 @@ const nextConfig = {
         return [
             {
                 source: '/testimonials',
-                destination: '/#testimonials',
+                destination: '/#testimonial',
                 permanent: true,
             },
             {
@@ -33,7 +33,7 @@ const nextConfig = {
             },
             {
                 source: '/testimonials/sarah',
-                destination: '/#testimonials',
+                destination: '/#testimonial',
                 permanent: true,
             },
             {
@@ -48,7 +48,7 @@ const nextConfig = {
             },
             {
                 source: '/testimonials/kate-murray',
-                destination: '/#testimonials',
+                destination: '/#testimonial',
                 permanent: true,
             },
         ]
