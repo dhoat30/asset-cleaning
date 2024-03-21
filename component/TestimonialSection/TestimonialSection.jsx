@@ -23,6 +23,7 @@ export default function TestimonialSection({ data }) {
 }
 const Section = styled.section`
   margin: 120px 0;
+  background: var(--material-theme-sys-light-surface-container-low);
   .row {
     padding-right: 0;
     display: grid;

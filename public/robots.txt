@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://webduel.co.nz
+Host: https://www.assetcleaning.co.nz
 
 # Sitemaps
-Sitemap: https://webduel.co.nz/sitemap.xml
+Sitemap: https://www.assetcleaning.co.nz/sitemap.xml
