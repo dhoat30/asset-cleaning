@@ -195,5 +195,8 @@ const ContainerStyled = styled(Box)`
     .react-datepicker-wrapper {
       width: 100%;
     }
+    .react-datepicker-popper {
+      z-index: 200 !important;
+    }
   }
 `;
