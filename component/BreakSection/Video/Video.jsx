@@ -37,6 +37,7 @@ export default function Video({
             src={placeholderImage} // Replace with your placeholder image path
             fill
             alt="Video Thumbnail"
+            sizes="(max-width: 900px) 100vw, 50vw"
           />
           <ButtonStyled onClick={handleImageClick}>
             <PlayIcon />

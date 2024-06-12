@@ -6,13 +6,13 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'gurpreetd5.sg-host.com'
+                hostname: 'data.assetcleaning.co.nz'
 
             },
         ],
     },
     env: {
-        url: "https://gurpreetd5.sg-host.com"
+        url: "https://data.assetcleaning.co.nz"
     },
     async redirects() {
         return [

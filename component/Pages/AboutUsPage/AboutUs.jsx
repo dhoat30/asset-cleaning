@@ -9,7 +9,9 @@ import TestimonialSection from "@/component/TestimonialSection/TestimonialSectio
 import WhyChooseUsSection from "@/component/WhyChooseUsSection/WhyChooseUsSection";
 import USP from "@/component/USP/USP";
 import BreakSection from "@/component/BreakSection/BreakSection";
+import Certification from "@/component/Certification/Certification";
 export default function AboutUs({ data, testimonialData, whyChooseUsData }) {
+  console.log("data", data);
   const heroData = {
     title: data.acf.hero_section.title,
     description: data?.acf.hero_section.description,
@@ -26,12 +28,17 @@ export default function AboutUs({ data, testimonialData, whyChooseUsData }) {
     video: data?.acf.section_break.video_section.video_file,
     cta: data?.acf.section_break.cta,
   };
-
+  const certificationsData = {
+    title: data?.acf?.certificates.title,
+    description: data?.acf?.certificates.description,
+    cards: data?.acf?.certificates.cards,
+  };
   return (
     <>
       <Hero data={heroData} />
       <USP />
       <BreakSection data={sectionBreakData} />
+      <Certification data={certificationsData} />
       <TestimonialSection data={testimonialData.testimonial} />
       {whyChooseUsData.acf.hero_section?.title && (
         <WhyChooseUsSection
