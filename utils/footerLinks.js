@@ -20,7 +20,10 @@ export const residentialCleaningLinks = [
     { label: "Window Cleaning", url: "/residential/window-cleaning", id: "window-cleaning" },
 ]
 export const quickLinks = [
-    // { label: "About Us", url: "/about-us" },
+
+    { label: "Certification", url: "/about-us#certificates" },
+
+    { label: "About Us", url: "/about-us" },
     { label: "Commercial Cleaning", url: "/commercial" },
     { label: "Residential Cleaning", url: "/residential" },
     { label: "Contact", url: "/contact" },

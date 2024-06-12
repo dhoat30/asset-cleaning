@@ -25,7 +25,7 @@ export default function Certification({ data }) {
     );
   });
   return (
-    <Section>
+    <Section id="certificates">
       <Container maxWidth="lg">
         <div className="title-wrapper">
           <Typography variant="h2" align="center" gutterBottom>
