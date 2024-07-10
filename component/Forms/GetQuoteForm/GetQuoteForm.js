@@ -64,9 +64,11 @@ export default function GetQuoteForm({ className, showTitle }) {
         if (typeof window !== 'undefined') {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-                'event': 'contact_form', // The custom event name you configured in GTM
+                'event': 'form_submission', // The custom event name you configured in GTM
                 'event_category': 'form_submit',
-                'event_label': 'Speed Checker Form Submitted'
+                'event_label': 'Quote Form Submitted',
+                'ga4_event': "quote_form_submission",
+
             });
         }
 

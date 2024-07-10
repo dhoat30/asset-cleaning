@@ -57,7 +57,16 @@ export default function FooterCTAForm({ title, description, formName }) {
     }
 
     setIsLoading(true);
-
+    // Send an event to GA4 manually
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "form_submission", // The custom event name you configured in GTM
+        event_category: "form_submit",
+        event_label: "Footer CTA Form Submitted",
+        ga4_event: "footer_cta_form_submission",
+      });
+    }
     // hubspot config
     var configHubspot = {
       method: "post",

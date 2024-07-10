@@ -58,8 +58,19 @@ export default function ContactForm({ className }) {
 
 
 
-        setIsLoading(true)
 
+        setIsLoading(true)
+        // Send an event to GA4 manually
+        if (typeof window !== 'undefined') {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'form_submission', // The custom event name you configured in GTM
+                'event_category': 'form_submit',
+                'event_label': 'Contact Form Submitted',
+                "ga4_event": "contact_us_form_submission",
+
+            });
+        }
 
         // hubspot config
         var configHubspot = {
