@@ -61,7 +61,7 @@ export default function TestimonialCarousel({ dataArr }) {
 const Section = styled.section`
   h4 {
     margin-top: 24px;
-    color: var(--material-theme-sys-light-on-surface-variant, #44483e);
+    color: var(--light-on-surface-variant, #44483e);
   }
   .slick-dots {
     text-align: right;

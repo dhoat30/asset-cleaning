@@ -32,8 +32,7 @@ export default function Hero({ data }) {
           sx={{
             padding: "32px 16px",
             borderRadius: "16px",
-            background:
-              "var(--material-theme-sys-light-primary-container, #AFF66E)",
+            background: "var(--light-primary-container, #AFF66E)",
           }}
         >
           <Typography variant="h3" component="h1">
@@ -93,16 +92,16 @@ const BoxStyled = styled(Box)`
     }
     .content-wrapper {
       h1 {
-        color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+        color: var(--dark-on-primary-fixed-variant, #295000);
         text-transform: capitalize;
       }
 
       h2 {
         margin-top: 8px;
-        color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+        color: var(--dark-on-primary-fixed-variant, #295000);
       }
 
-      color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+      color: var(--dark-on-primary-fixed-variant, #295000);
     }
     .button-wrapper {
       display: flex;

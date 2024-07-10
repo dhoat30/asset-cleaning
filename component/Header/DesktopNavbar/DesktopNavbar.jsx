@@ -126,7 +126,7 @@ function DesktopNavbar() {
                         pr: 4,
                         pl: 4,
                         "&:hover": {
-                          color: "var(--material-theme-sys-light-on-surface)",
+                          color: "var(--light-on-surface)",
                         },
                       }}
                     >
@@ -202,11 +202,10 @@ const AppBarContainer = styled(AppBar)`
       display: flex;
       align-items: center;
       padding: 8px 4px;
-      color: var(--material-theme-sys-dark-on-primary, #1b3700);
+      color: var(--dark-on-primary, #1b3700);
     }
     .parent-link.active {
-      border-bottom: 2px solid
-        var(--material-theme-sys-dark-on-primary, #1b3700);
+      border-bottom: 2px solid var(--dark-on-primary, #1b3700);
     }
   }
 
@@ -214,18 +213,18 @@ const AppBarContainer = styled(AppBar)`
     li {
       .child-link {
         span {
-          color: var(--material-theme-sys-dark-on-primary, #1b3700);
+          color: var(--dark-on-primary, #1b3700);
         }
       }
       .child-link.active {
         span {
-          color: var(--material-theme-sys-light-primary-container, #aff66e);
-          background: var(--material-theme-sys-dark-on-primary, #1b3700);
+          color: var(--light-primary-container, #aff66e);
+          background: var(--dark-on-primary, #1b3700);
         }
       }
       &:hover {
         span {
-          color: var(--material-theme-sys-light-primary);
+          color: var(--light-primary);
         }
       }
     }

@@ -44,11 +44,11 @@ const ContainerStyled = styled(Container)`
   }
   .content-wrapper {
     .title {
-      color: var(--material-theme-sys-light-on-surface-variant, #44483e);
+      color: var(--light-on-surface-variant, #44483e);
     }
     .description {
       margin-top: 12px;
-      color: var(--material-theme-sys-light-on-surface-variant, #44483e);
+      color: var(--light-on-surface-variant, #44483e);
     }
   }
   .contact-form-wrapper {

@@ -12,7 +12,11 @@ const nextConfig = {
         ],
     },
     env: {
-        url: "https://data.assetcleaning.co.nz"
+        url: "https://data.assetcleaning.co.nz",
+        siteUrl: "https://assetcleaning.co.nz",
+        name: "Asset Cleaning",
+        darkLogo: "/dark-logo.png",
+        gurpreet: "/gurpreet.jpg"
     },
     async redirects() {
         return [

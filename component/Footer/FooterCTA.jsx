@@ -30,7 +30,7 @@ export default function FooterCTA({ data }) {
   );
 }
 const ContainerStyled = styled(Container)`
-  background: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
+  background: var(--light-on-primary-fixed-variant, #295000);
   margin: 40px auto;
   @media (min-width: 600px) {
     width: 95%;
@@ -55,12 +55,12 @@ const ContainerStyled = styled(Container)`
     }
 
     h3 {
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
       margin-top: 24px;
     }
     p {
       margin-top: 16px;
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
       @media (max-width: 1140px) {
         align: center;
       }

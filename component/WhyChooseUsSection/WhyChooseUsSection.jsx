@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Container, Typography, Box } from "@mui/material";
-import Link from "next/link";
-import DarkButton from "../Button/DarkButton";
-import CalendarMonthRoundedIcon from "@mui/icons-material/CalendarMonthRounded";
+
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import Video from "../BreakSection/Video/Video";
 export default function WhyChooseUsSection({ data, title, subtitle }) {
   return (
@@ -22,11 +22,7 @@ export default function WhyChooseUsSection({ data, title, subtitle }) {
           return (
             <div className={`card ${isOdd ? "odd" : "even"}`} key={index}>
               <Container className="content-wrapper row" maxWidth="xl">
-                <Typography
-                  variant="h5"
-                  component="h4"
-                  sx={{ fontWeight: 900 }}
-                >
+                <Typography variant="h4" component="h4">
                   {item.title}
                 </Typography>
                 <Typography variant="body1" component="p">
@@ -54,14 +50,14 @@ export default function WhyChooseUsSection({ data, title, subtitle }) {
 const Section = styled.section`
   padding: 80px 0 0 0;
   margin: 40px 0;
-  background: var(--material-theme-sys-dark-primary-container, #295000);
+  background: var(--dark-primary-container, #295000);
   border-radius: 40px 40px 0 0;
   .row {
   }
   .card {
     display: flex;
     /* grid-template-columns: 1fr 1fr; */
-    background: var(--material-theme-sys-light-primary-container, #aff66e);
+    background: var(--light-primary-container, #aff66e);
     align-items: center;
 
     @media (min-width: 900px) {
@@ -77,10 +73,10 @@ const Section = styled.section`
   .title-wrapper {
     margin-bottom: 40px;
     h3 {
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
     }
     p {
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
     }
   }
   .content-wrapper {
@@ -89,12 +85,12 @@ const Section = styled.section`
       width: 100%;
     }
     h4 {
-      color: var(--material-theme-sys-dark-primary-container, #295000);
+      color: var(--dark-primary-container, #295000);
       letter-spacing: 0.04rem;
     }
     p {
       margin-top: 8px;
-      color: var(--material-theme-sys-dark-primary-container, #295000);
+      color: var(--dark-primary-container, #295000);
     }
   }
   .video-wrapper {

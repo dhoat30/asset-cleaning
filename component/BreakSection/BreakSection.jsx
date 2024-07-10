@@ -28,6 +28,7 @@ export default function BreakSection({ data, className }) {
         <Box className="video-wrapper">
           <div className="outline">
             <Video
+              borderRadius={true}
               className="video"
               placeholderImage={
                 data.placeholderImage.sizes["2048x2048"]
@@ -43,7 +44,7 @@ export default function BreakSection({ data, className }) {
   );
 }
 const Section = styled.section`
-  background: var(--material-theme-sys-light-primary-container, #aff66e);
+  background: var(--light-primary-container, #aff66e);
   padding: 80px 0;
   margin: 40px 0;
   .row {
@@ -57,11 +58,11 @@ const Section = styled.section`
   }
   .content-wrapper {
     h3 {
-      color: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
+      color: var(--light-on-primary-fixed-variant, #295000);
     }
     p {
       margin-top: 16px;
-      color: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
+      color: var(--light-on-primary-fixed-variant, #295000);
     }
     a {
       margin-top: 24px;
@@ -73,16 +74,6 @@ const Section = styled.section`
       margin-top: 32px;
     }
     .video {
-      left: -24px;
-      bottom: -24px;
-      @media (max-width: 1140px) {
-        left: -8px;
-        bottom: -8px;
-      }
-    }
-    .outline {
-      border: 3px solid
-        var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
     }
   }
 `;

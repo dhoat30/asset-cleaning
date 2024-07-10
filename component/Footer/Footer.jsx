@@ -109,9 +109,9 @@ export default function Footer({ optionsData, showCTA }) {
       <CopyRight className="row">
         <Typography variant="body2" component="p">
           Challenge Cleaning Ltd. t/a Asset Cleaning & Property Services © 2023.
-          All Rights Reserved | Built By
+          All Rights Reserved |
           <a href="https://webduel.co.nz" target="_blank" rel="nofollow">
-            Web<strong>DUEL</strong>
+            Built By web<strong>duel</strong>
           </a>
         </Typography>
       </CopyRight>
@@ -120,7 +120,7 @@ export default function Footer({ optionsData, showCTA }) {
 }
 const BoxStyled = styled(Paper)`
   padding: 40px 0;
-  background: var(--material-theme-sys-light-surface-container, #efeee7);
+  background: var(--light-surface-container, #efeee7);
 
   .row {
     display: grid;
@@ -153,12 +153,12 @@ const BoxStyled = styled(Paper)`
     .links-wrapper {
       h6 {
         font-weight: 500;
-        color: var(--material-theme-sys-light-on-surface-variant, #44483e);
+        color: var(--light-on-surface-variant, #44483e);
       }
       a {
         display: block;
         margin: 8px 0;
-        color: var(--material-theme-sys-light-on-surface-variant, #44483e);
+        color: var(--light-on-surface-variant, #44483e);
         &:hover {
           text-decoration: underline;
           color: black;
@@ -175,13 +175,14 @@ const CopyRight = styled(Box)`
     color: white;
   }
   a {
+    margin-left: 4px;
     color: white;
     &:hover {
       text-decoration: underline;
     }
     strong {
       color: white;
-      font-weight: 900;
+      font-weight: 700;
       letter-spacing: 0;
     }
   }

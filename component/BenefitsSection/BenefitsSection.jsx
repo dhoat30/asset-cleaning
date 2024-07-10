@@ -58,7 +58,7 @@ const ContainerStyled = styled(Container)`
   }
   .subtitle {
     margin-bottom: 8px;
-    color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+    color: var(--dark-on-primary-fixed-variant, #295000);
   }
   .cards-wrapper {
     max-width: 1200px;

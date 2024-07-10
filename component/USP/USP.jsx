@@ -114,7 +114,7 @@ const ContainerStyled = styled.section`
       height: 35px;
     }
     path {
-      fill: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+      fill: var(--dark-on-primary-fixed-variant, #295000);
     }
   }
   text-align: center;

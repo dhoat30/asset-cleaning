@@ -83,7 +83,7 @@ const Section = styled.section`
   top: 0;
   left: 0;
   width: 100%;
-  background: var(--material-theme-sys-light-on-primary-container, #0d2000);
+  background: var(--light-on-primary-container, #0d2000);
   z-index: 1101;
   @media (max-width: 1200px) {
     top: 40px;
@@ -107,6 +107,6 @@ const Section = styled.section`
     color: #80c342;
   }
   button {
-    color: var(--material-theme-sys-dark-on-primary, #1b3700) !important;
+    color: var(--dark-on-primary, #1b3700) !important;
   }
 `;

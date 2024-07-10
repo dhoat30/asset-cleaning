@@ -14,8 +14,7 @@ export default function DarkButton({
     <ButtonStyled
       className={className}
       sx={{
-        background:
-          "var(--material-theme-sys-dark-on-primary-fixed-variant, #295000)",
+        background: "var(--dark-on-primary-fixed-variant, #295000)",
       }}
       variant="contained"
       startIcon={startIcon && <Icon />}
@@ -26,11 +25,11 @@ export default function DarkButton({
   );
 }
 const ButtonStyled = styled(Button)`
-  color: var(--material-theme-sys-light-primary-container, #aff66e);
+  color: var(--light-primary-container, #aff66e);
   span {
-    color: var(--material-theme-sys-light-primary-container, #aff66e);
+    color: var(--light-primary-container, #aff66e);
   }
   :hover {
-    background: var(--material-theme-sys-dark-on-primary, #1b3700);
+    background: var(--dark-on-primary, #1b3700);
   }
 `;

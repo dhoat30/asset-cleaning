@@ -30,7 +30,7 @@ const Container = styled.div`
     &:hover {
       svg {
         path {
-          fill: var(--material-theme-sys-light-on-surface, #1d1b16);
+          fill: var(--light-on-surface, #1d1b16);
         }
       }
     }

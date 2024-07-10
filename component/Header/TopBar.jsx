@@ -14,7 +14,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
         <Box component="div" className="contact-wrapper">
           <Link href={`tel: ${phone}`} aria-label="Phone Icon" role="link">
             <LocalPhoneRoundedIcon
-              color="var(--material-theme-sys-dark-on-secondary-container)"
+              color="var(--dark-on-secondary-container)"
               //   fontSize="small"
             />
             <Typography variant="button" component="span">
@@ -23,7 +23,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
           </Link>
           <Link href={`mailto: ${email}`} aria-label="Email Icon" role="link">
             <EmailRoundedIcon
-              color="var(--material-theme-sys-dark-on-secondary-container)"
+              color="var(--dark-on-secondary-container)"
               //   fontSize="small"
             />
             <Typography
@@ -42,7 +42,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
               target="_blank"
               aria-label="Facebook Icon"
             >
-              <FacebookRoundedIcon color="var(--material-theme-sys-dark-on-secondary-container)" />
+              <FacebookRoundedIcon color="var(--dark-on-secondary-container)" />
             </Link>
           )}
 
@@ -52,7 +52,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
               target="_blank"
               aria-label="Youtube Icon"
             >
-              <YouTubeIcon color="var(--material-theme-sys-dark-on-secondary-container)" />
+              <YouTubeIcon color="var(--dark-on-secondary-container)" />
             </Link>
           )}
         </Box>
@@ -61,7 +61,7 @@ export default function TopBar({ email, phone, facebookURL, youtubeURL }) {
   );
 }
 const Section = styled.section`
-  background: var(--material-theme-sys-dark-secondary-container, #004c69);
+  background: var(--dark-secondary-container, #004c69);
   padding: 8px 0;
   @media (max-width: 1200px) {
     position: fixed;
@@ -71,7 +71,7 @@ const Section = styled.section`
     z-index: 10;
   }
   a {
-    color: var(--material-theme-sys-dark-on-secondary-container);
+    color: var(--dark-on-secondary-container);
     display: flex;
     align-items: center;
     gap: 8px;

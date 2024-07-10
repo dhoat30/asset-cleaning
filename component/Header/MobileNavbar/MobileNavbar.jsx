@@ -122,7 +122,7 @@ export default function MobileNavbar() {
           display: {
             xs: "block",
             lg: "none",
-            background: "var(--material-theme-sys-light-surface, #FAFAF2)",
+            background: "var(--light-surface, #FAFAF2)",
           },
         }}
       >
@@ -170,8 +170,7 @@ export default function MobileNavbar() {
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
-              backgroundColor:
-                "var(--material-theme-sys-dark-on-primary-fixed-variant, #295000)",
+              backgroundColor: "var(--dark-on-primary-fixed-variant, #295000)",
             },
           }}
           anchor="left"

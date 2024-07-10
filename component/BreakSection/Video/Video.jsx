@@ -9,6 +9,7 @@ export default function Video({
   videoFile,
   placeholderImage,
   className,
+  borderRadius,
 }) {
   const [isClient, setIsClient] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false); // New state for tracking video load
@@ -38,6 +39,7 @@ export default function Video({
             fill
             alt="Video Thumbnail"
             sizes="(max-width: 900px) 100vw, 50vw"
+            style={{ borderRadius: borderRadius ? "12px" : "0px" }}
           />
           <ButtonStyled onClick={handleImageClick}>
             <PlayIcon />
@@ -54,6 +56,7 @@ export default function Video({
             position: "absolute",
             top: 0,
             left: 0,
+            borderRadius: borderRadius ? "12px" : "0px",
           }}
           width="100%"
           height="100%"

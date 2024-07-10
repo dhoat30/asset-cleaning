@@ -64,7 +64,7 @@ const ContainerStyled = styled(Container)`
   }
   p {
     margin-bottom: 8px;
-    color: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+    color: var(--dark-on-primary-fixed-variant, #295000);
   }
   .checklist-wrapper {
     /* display: grid;
@@ -89,6 +89,7 @@ const ContainerStyled = styled(Container)`
       border-radius: 12px;
       background: none;
       padding: 16px 16px;
+      background: var(--light-surface-container-lowest);
       .list {
         margin: 16px 0 0 0;
         padding: 0;

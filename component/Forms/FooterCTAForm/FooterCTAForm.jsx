@@ -144,8 +144,7 @@ export default function FooterCTAForm({ title, description, formName }) {
         className="wrapper"
         elevation={3}
         sx={{
-          background:
-            "var(--material-theme-sys-light-surface-container-low, #F4F4ED)",
+          background: "var(--light-surface-container-low, #F4F4ED)",
         }}
       >
         <Typography variant="h4" component="h3">

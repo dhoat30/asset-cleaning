@@ -50,6 +50,7 @@ export default function CardComponent({
 }
 
 const CardStyled = styled(Card)`
+  background: var(--light-surface-container-lowest);
   .image-wrapper {
     position: relative;
     width: 100%;

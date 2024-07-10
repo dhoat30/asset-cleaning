@@ -45,7 +45,7 @@ export default function ServiceExplanation({
   );
 }
 const BoxStyled = styled(Box)`
-  background: var(--material-theme-sys-dark-on-primary-fixed-variant, #295000);
+  background: var(--dark-on-primary-fixed-variant, #295000);
 `;
 const ContainerStyled = styled(Box)`
   display: flex;
@@ -77,14 +77,14 @@ const ContainerStyled = styled(Box)`
     }
     .subtitle {
       margin-bottom: 8px;
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
     }
     .title {
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
     }
     .description {
       margin-top: 16px;
-      color: var(--material-theme-sys-light-primary-container, #aff66e);
+      color: var(--light-primary-container, #aff66e);
     }
   }
 
@@ -96,7 +96,7 @@ const ContainerStyled = styled(Box)`
       border: none;
     }
     /* grid-column: 3/5; */
-    background: var(--material-theme-sys-light-surface, #fafaf2);
+    background: var(--light-surface, #fafaf2);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

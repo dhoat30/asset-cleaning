@@ -18,7 +18,11 @@ export const theme = createTheme({
         contrastThreshold: 4.5,
     },
     typography: {
-
+        fontFamily: [
+            'var(--font-work-sans)',
+            "Segoe UI",
+            'sans-serif',
+        ].join(','),
         h1: {
 
             fontWeight: 400,
@@ -33,7 +37,7 @@ export const theme = createTheme({
             },
         },
         h3: {
-            fontWeight: 900,
+            fontWeight: 700,
             color: "#1B1C18",
             '@media (max-width:600px)': {
                 fontSize: '2rem',
@@ -41,20 +45,19 @@ export const theme = createTheme({
 
         },
         h4: {
-            fontWeight: 500,
+            fontWeight: 600,
         },
 
         h6: {
             fontWeight: 400,
-            letterSpacing: "0.02rem",
-            color: "var(--material-theme-sys-dark-on-surface)",
+            color: "var(--dark-on-surface)",
             '@media (max-width:600px)': {
                 fontSize: '1.1rem',
             },
         },
         body1: {
             color: '#44483E',
-            letterSpacing: "0.07rem"
+
         },
 
     },

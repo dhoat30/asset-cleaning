@@ -47,6 +47,7 @@ export default function HomeServiceCard({
                 : placeholderImage.sizes.large
             }
             videoFile={videoFile}
+            borderRadius={true}
           />
         </div>
       </Box>
@@ -54,7 +55,7 @@ export default function HomeServiceCard({
   );
 }
 const ContainerStyled = styled(Paper)`
-  background: var(--material-theme-sys-light-primary-container, #aff66e);
+  background: var(--light-primary-container, #aff66e);
   border-radius: 40px;
   padding: 32px 16px;
   @media (max-width: 600px) {
@@ -63,11 +64,11 @@ const ContainerStyled = styled(Paper)`
     position: relative;
   }
   h2 {
-    color: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
+    color: var(--light-on-primary-fixed-variant, #295000);
   }
   h3 {
     margin-top: 8px;
-    color: var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
+    color: var(--light-on-primary-fixed-variant, #295000);
   }
   .cta-wrapper {
     margin-top: 16px;
@@ -79,19 +80,9 @@ const ContainerStyled = styled(Paper)`
   }
 
   .video-wrapper {
-    width: 90%;
-    margin: 56px auto 40px auto;
+    margin-top: 24px;
+
     .video {
-      left: -24px;
-      bottom: -24px;
-      @media (max-width: 1140px) {
-        left: -8px;
-        bottom: -8px;
-      }
-    }
-    .outline {
-      border: 3px solid
-        var(--material-theme-sys-light-on-primary-fixed-variant, #295000);
     }
   }
 `;

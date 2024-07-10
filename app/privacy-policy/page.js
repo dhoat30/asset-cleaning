@@ -19,8 +19,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
             openGraph: {
                 title: seoData.title,
                 description: seoData.description,
-                url: 'https://www.webduel.co.nz',
-                siteName: 'webduel.co.nz',
+                url: 'https://www.assetcleaning.co.nz',
+                siteName: 'assetcleaning.co.nz',
                 images: [
                     {
                         url: seoData.og_image && seoData.og_image[0].url,

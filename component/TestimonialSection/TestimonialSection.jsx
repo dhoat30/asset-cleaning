@@ -23,7 +23,7 @@ export default function TestimonialSection({ data }) {
 }
 const Section = styled.section`
   margin: 120px 0;
-  background: var(--material-theme-sys-light-surface-container-low);
+  background: var(--light-surface-container-low);
   .row {
     padding-right: 0;
     display: grid;
@@ -37,10 +37,7 @@ const Section = styled.section`
       padding-bottom: 160px;
       border-radius: 0 40px 40px 0;
 
-      background: var(
-        --material-theme-sys-light-on-primary-fixed-variant,
-        #295000
-      );
+      background: var(--light-on-primary-fixed-variant, #295000);
       padding-left: 27%;
       @media (max-width: 1700px) {
         padding-left: 14%;
@@ -53,11 +50,11 @@ const Section = styled.section`
         padding: 40px 16px;
       }
       .icon {
-        color: var(--material-theme-sys-light-primary-container, #aff66e);
+        color: var(--light-primary-container, #aff66e);
         font-size: 5rem;
       }
       .title {
-        color: var(--material-theme-sys-light-primary-container, #aff66e);
+        color: var(--light-primary-container, #aff66e);
       }
     }
     .review-wrapper {
