@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../utils/themeSettings'
 import Script from 'next/script'
+import { GoogleTagManager } from '@next/third-parties/google'
+
 // fonts settings
 
 const work_sans = Work_Sans({
@@ -20,18 +22,9 @@ const work_sans = Work_Sans({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${work_sans.variable}`}>
-      <head>
-        <Script id="google-analytics" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-5C66G9MTCY"> </Script>
-        <Script id="google-analtyics-datalayer" strategy="lazyOnload">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-5C66G9MTCY');
-        `}
-        </Script>
-      </head>
+      <GoogleTagManager gtmId="GTM-KM9QSZJB" />
+
+
       <body >
         <ThemeProvider theme={theme}>
           {children}
