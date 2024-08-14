@@ -5,7 +5,6 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 
 export default function BlogTableOfContent({ data }) {
-  console.log(data);
   if (!data) return null;
   return (
     <Section variant="outlined">

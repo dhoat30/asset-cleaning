@@ -9,7 +9,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import CustomDatePicker from "../InputFields/DatePicker";
 import LoadingBtn from "@/component/Button/LoadingBtn";
 import axios from "axios";
-export default function BookAppointmentForm({ showTitle }) {
+export default function BookAppointmentForm({
+  showTitle,
+  formName = "Site Assessment Form",
+}) {
   const [formData, setFormData] = useState({
     typeOfService: [],
     formName: "Site Assessment Form",
@@ -71,34 +74,56 @@ export default function BookAppointmentForm({ showTitle }) {
         ga4_event: "booking_appointment_form_submission",
       });
     }
+    const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Phone:${formData.phone} \n Site Assessment Date & Time:${startDate}`;
+
+    const data = {
+      email: formData.email,
+      formName: formName,
+      message: `First Name: ${formData.firstName} \n Last Name: ${formData.lastName} \n Email: ${formData.email} \n \n Phone Number: ${formData.phone} \n Site Assessment Date & Time:${startDate}`,
+      portalID: "143792780",
+      hubspotFormID: "a3b83095-727c-47e0-9e08-8b632aa96572",
+      hubspotFormObject: [
+        {
+          name: "firstname",
+          value: formData.firstName,
+        },
+        {
+          name: "lastname",
+          value: formData.lastName,
+        },
+        {
+          name: "email",
+          value: formData.email,
+        },
+        {
+          name: "phone",
+          value: formData.phone,
+        },
+        {
+          name: "appointment_date",
+          value: startDate,
+        },
+      ],
+    };
     // hubspot config
     var configHubspot = {
       method: "post",
-      url: "/api/create-hubspot-contact",
+      url: "/api/submit-hubspot-form",
       headers: { "Content-Type": "application/json" },
-      data: formData,
+      data: data,
     };
-    const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Phone:${formData.phone} \n Site Assessment Date & Time:${startDate}`;
-
     // mailgun config
     var configSendMail = {
       method: "post",
       url: "/api/sendmail",
       headers: { "Content-Type": "application/json" },
-      data: {
-        mailText: mailText,
-        formName: formData.formName,
-        emailTo: "admin@assetcleaning.co.nz",
-        fromEmail: formData.email,
-      },
+      data: data,
     };
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (responses) {
-        console.log(responses);
         // responses[0] is the response from create-hubspot-contact
         // responses[1] is the response from sendmail
-        console.log(responses);
         if (responses[0].status === 200) {
           console.log("sucesss");
           setIsLoading(false);

@@ -13,7 +13,6 @@ export default function Video({
 }) {
   const [isClient, setIsClient] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false); // New state for tracking video load
-  console.log(videoLoaded);
   useEffect(() => {
     setIsClient(true);
   }, []);

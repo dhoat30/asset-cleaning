@@ -2,9 +2,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Container, Typography, Box, Paper } from "@mui/material";
-import Loading from "@/app/loading";
 export default function HtmlPageTemplate({ pageData }) {
-  console.log(pageData);
   return (
     <Paper elevation={1}>
       <ContainerStyled maxWidth="xl">

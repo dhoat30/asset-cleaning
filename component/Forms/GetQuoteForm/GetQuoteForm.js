@@ -9,7 +9,7 @@ import styled from "@emotion/styled";
 import axios from "axios";
 import { Alert } from "@mui/material";
 import Paper from "@mui/material/Paper";
-export default function GetQuoteForm({ className, showTitle }) {
+export default function GetQuoteForm({ className, showTitle, formName = "Quote Form" }) {
     const [formData, setFormData] = useState({ typeOfService: [], formName: "Quote Form" });
     const [errors, setErrors] = useState({});
     const [activeStep, setActiveStep] = React.useState(0);
@@ -72,26 +72,52 @@ export default function GetQuoteForm({ className, showTitle }) {
             });
         }
 
+        const data = {
+            email: formData.email,
+            formName: formName,
+            message: `First Name: ${formData.firstName} \n Last Name: ${formData.lastname} \n Email: ${formData.email} \n \n Phone Number: ${formData.phone} \n Property Type: ${formData.propertyType} \n Service Type: ${formData.service}`,
+            portalID: "143792780",
+            hubspotFormID: "b2d0ac8c-38cf-4dd0-a84a-c86ba580b191",
+            hubspotFormObject: [
+                {
+                    name: "firstname",
+                    value: formData.firstName
+                },
+                {
+                    name: "lastname",
+                    value: formData.lastname
+                },
+                {
+                    name: "email",
+                    value: formData.email
+                },
+                {
+                    name: "phone",
+                    value: formData.phone
+                },
+                {
+                    name: "property_type",
+                    value: formData.propertyType
+                },
+                {
+                    name: "service",
+                    value: formData['service'].join(",")
+                }
+            ]
+        }
         // hubspot config
         var configHubspot = {
             method: 'post',
-            url: '/api/create-hubspot-contact',
+            url: '/api/submit-hubspot-form',
             headers: { 'Content-Type': 'application/json' },
-            data: formData
+            data: data
         };
-        const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastname} \n Email address: ${formData.email} \n Phone Number: ${formData.phone} \n Property Type: ${formData.propertyType} \n Service Type: ${formData.service}`
-
         // mailgun config
         var configSendMail = {
             method: 'post',
             url: '/api/sendmail',
             headers: { 'Content-Type': 'application/json' },
-            data: {
-                mailText: mailText,
-                formName: formData.formName,
-                emailTo: "admin@assetcleaning.co.nz",
-                fromEmail: formData.email,
-            }
+            data: data
         };
 
         Promise.all([axios(configHubspot), axios(configSendMail)])

@@ -7,7 +7,11 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import LoadingBtn from "@/component/Button/LoadingBtn";
 import axios from "axios";
-export default function FooterCTAForm({ title, description, formName }) {
+export default function FooterCTAForm({
+  title,
+  description,
+  formName = "Footer Form",
+}) {
   const [formData, setFormData] = useState({
     typeOfService: [],
     formName: "Footer Form",
@@ -67,38 +71,50 @@ export default function FooterCTAForm({ title, description, formName }) {
         ga4_event: "footer_cta_form_submission",
       });
     }
+
+    const data = {
+      email: formData.email,
+      formName: formName,
+      message: `First Name: ${formData.firstName}  \n Email: ${formData.email} \n Message:${formData.message}`,
+      portalID: "143792780",
+      hubspotFormID: "fc0658e3-9b88-4938-87d2-215cd6cc3178",
+      hubspotFormObject: [
+        {
+          name: "firstname",
+          value: formData.firstName,
+        },
+
+        {
+          name: "email",
+          value: formData.email,
+        },
+        {
+          name: "message",
+          value: formData.message,
+        },
+      ],
+    };
     // hubspot config
     var configHubspot = {
       method: "post",
-      url: "/api/create-hubspot-contact",
+      url: "/api/submit-hubspot-form",
       headers: { "Content-Type": "application/json" },
-      data: formData,
+      data: data,
     };
-    const mailText = `First name: ${formData.firstName} \n Email address: ${formData.email} \n Message:${formData.message}`;
-
     // mailgun config
     var configSendMail = {
       method: "post",
       url: "/api/sendmail",
       headers: { "Content-Type": "application/json" },
-      data: {
-        mailText: mailText,
-        formName: formData.formName,
-        emailTo: "admin@assetcleaning.co.nz",
-        fromEmail: formData.email,
-      },
+      data: data,
     };
-
-    if (4 === 4) return;
 
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (responses) {
-        console.log(responses);
         // responses[0] is the response from create-hubspot-contact
         // responses[1] is the response from sendmail
-        console.log(responses);
+
         if (responses[0].status === 200) {
-          console.log("sucesss");
           setIsLoading(false);
           setIsSuccess(true);
           setNewSubmission(true);

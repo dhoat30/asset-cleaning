@@ -11,7 +11,6 @@ import USP from "@/component/USP/USP";
 import BreakSection from "@/component/BreakSection/BreakSection";
 import Certification from "@/component/Certification/Certification";
 export default function AboutUs({ data, testimonialData, whyChooseUsData }) {
-  console.log("data", data);
   const heroData = {
     title: data.acf.hero_section.title,
     description: data?.acf.hero_section.description,

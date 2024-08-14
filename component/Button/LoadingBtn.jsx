@@ -13,7 +13,6 @@ function LoadingBtn({
   newSubmission,
   id,
 }) {
-  console.log(isSuccess);
   let labelText = children ? children : "Submit";
   return (
     <LoadingButtonStyle

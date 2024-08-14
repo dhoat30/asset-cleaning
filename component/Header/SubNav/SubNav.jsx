@@ -39,7 +39,6 @@ function SubNav({ dataArr }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(dataArr);
   const tab = dataArr.map((item, index) => {
     return (
       <Tab

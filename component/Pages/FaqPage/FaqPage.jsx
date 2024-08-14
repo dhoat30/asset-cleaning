@@ -10,7 +10,6 @@ import CardComponent from "@/component/Cards/Card";
 import FaqSection from "@/component/FaqSection/FaqSection";
 import TestimonialSection from "@/component/TestimonialSection/TestimonialSection";
 export default function FaqPage({ data, faqDataArr, testimonialData }) {
-  console.log(data);
   const title = data.acf.hero.title;
   const description = data.acf.hero.subtitle;
   return (

@@ -7,7 +7,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function FaqAccordion({ faqDataArr }) {
   const accordion = faqDataArr.map((item, index) => {
-    console.log(item);
     return (
       <Accordion key={index}>
         <AccordionSummary

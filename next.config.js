@@ -15,8 +15,8 @@ const nextConfig = {
         url: "https://data.assetcleaning.co.nz",
         siteUrl: "https://assetcleaning.co.nz",
         name: "Asset Cleaning",
-        darkLogo: "/dark-logo.png",
-        gurpreet: "/gurpreet.jpg"
+        darkLogo: "/logo-dark.svg",
+
     },
     async redirects() {
         return [

@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import Image from "next/image";
 export default function Certification({ data }) {
   const certificates = data.cards.map((card, index) => {
-    console.log("card", card);
     return (
       <div
         key={index}

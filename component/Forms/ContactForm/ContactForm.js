@@ -9,14 +9,13 @@ import styled from "@emotion/styled";
 import axios from "axios";
 import { Alert } from "@mui/material";
 
-export default function ContactForm({ className }) {
+export default function ContactForm({ className, formName = "Contact Form" }) {
     const [formData, setFormData] = useState({ typeOfService: [], formName: "Contact Form" });
     const [errors, setErrors] = useState({});
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [error, setError] = useState(false)
     const [newSubmission, setNewSubmission] = useState(false)
-    console.log(isSuccess)
 
     const handleChange = (id, value, isSelectMultiple) => {
         let updatedValue = value;
@@ -72,36 +71,54 @@ export default function ContactForm({ className }) {
             });
         }
 
+
+
+        const data = {
+            email: formData.email,
+            formName: formName,
+            message: `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Message:${formData.message}`,
+            portalID: "143792780",
+            hubspotFormID: "82435e70-6c10-458e-aeef-7fccb9846818",
+            hubspotFormObject: [
+                {
+                    name: "firstname",
+                    value: formData.firstName
+                },
+                {
+                    name: "lastname",
+                    value: formData.lastName
+                },
+                {
+                    name: "email",
+                    value: formData.email
+                },
+
+                {
+                    name: "message",
+                    value: formData.message
+                }
+            ]
+        }
         // hubspot config
         var configHubspot = {
             method: 'post',
-            url: '/api/create-hubspot-contact',
+            url: '/api/submit-hubspot-form',
             headers: { 'Content-Type': 'application/json' },
-            data: formData
+            data: data
         };
-        const mailText = `First name: ${formData.firstName} \n Last name: ${formData.lastName} \n Email address: ${formData.email} \n Message:${formData.message}`
-
         // mailgun config
         var configSendMail = {
             method: 'post',
             url: '/api/sendmail',
             headers: { 'Content-Type': 'application/json' },
-            data: {
-                mailText: mailText,
-                formName: formData.formName,
-                emailTo: "admin@assetcleaning.co.nz",
-                fromEmail: formData.email,
-            }
+            data: data
         };
 
         Promise.all([axios(configHubspot), axios(configSendMail)])
             .then(function (responses) {
-                console.log(responses)
                 // responses[0] is the response from create-hubspot-contact
                 // responses[1] is the response from sendmail
-                console.log(responses)
                 if (responses[0].status === 200) {
-                    console.log('sucesss')
                     setIsLoading(false)
                     setIsSuccess(true)
                     setNewSubmission(true)
