@@ -89,6 +89,8 @@ export default function FooterCTAForm({ title, description, formName }) {
       },
     };
 
+    if (4 === 4) return;
+
     Promise.all([axios(configHubspot), axios(configSendMail)])
       .then(function (responses) {
         console.log(responses);

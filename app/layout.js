@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${work_sans.variable}`}>
       <GoogleTagManager gtmId="GTM-KM9QSZJB" />
-
+      <meta name="google-site-verification" content="nhl6S-17MLASKBDxzyKV0cJbyIEGmnh3mAinNPPrV4w" />
 
       <body >
         <ThemeProvider theme={theme}>
