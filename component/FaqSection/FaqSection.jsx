@@ -1,9 +1,11 @@
 "use client";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
 import React from "react";
 import styled from "@emotion/styled";
-import ContactForm from "@/component/Forms/ContactForm/ContactForm";
-import TestimonialSection from "@/component/TestimonialSection/TestimonialSection";
+
 import FaqAccordion from "./FaqAccordion";
 export default function FaqSection({ title, description, faqDataArr }) {
   return (
@@ -27,19 +29,17 @@ export default function FaqSection({ title, description, faqDataArr }) {
 const ContainerStyled = styled(Container)`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding-top: 80px;
+  @media (max-width: 1200px) {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding-top: 40px;
-    padding-bottom: 40px;
   }
-  gap: 80px;
-  padding-top: 80px;
 
-  @media (max-width: 600px) {
-    padding-top: 40px;
-    padding-bottom: 0;
-  }
   .content-wrapper {
     .title {
       color: var(--light-on-surface-variant, #44483e);

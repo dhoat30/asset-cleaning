@@ -38,5 +38,10 @@ const ContainerStyled = styled(Container)`
       margin-bottom: 8px;
       margin-top: 32px;
     }
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      margin-top: 32px;
+    }
   }
 `;

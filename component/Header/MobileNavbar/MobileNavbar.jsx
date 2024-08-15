@@ -147,6 +147,7 @@ export default function MobileNavbar() {
                     height="28"
                     alt="logo"
                     quality={100}
+                    style={{ objectFit: "cover" }}
                   />
                 </Link>
               </div>
