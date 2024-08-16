@@ -14,13 +14,13 @@ export async function POST(req, res) {
 
     // Mailgun API endpoint
     const url = `https://api.mailgun.net/v3/${DOMAIN}/messages`;
+
     // Prepare the form data as URL encoded
     const formData = new URLSearchParams();
     formData.append('from', "noreply@assetcleaning.co.nz");
     formData.append('to', 'admin@assetcleaning.co.nz');
     formData.append('subject', formName);
     formData.append('text', `${message}`);
-
 
     try {
         const response = await fetch(url, {
