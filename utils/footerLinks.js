@@ -22,6 +22,7 @@ export const residentialCleaningLinks = [
 export const quickLinks = [
 
     { label: "Certification", url: "/about-us#certificates" },
+    { label: "Jobs", url: "/work-with-us" },
 
     { label: "About Us", url: "/about-us" },
     { label: "Commercial Cleaning", url: "/commercial" },
