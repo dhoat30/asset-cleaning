@@ -1,5 +1,5 @@
 {
-  "name": "asset-cleaning",
+  "name": "webduel2023",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,28 +10,43 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudflare/stream-react": "^1.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.18",
-    "@mui/lab": "^5.0.0-alpha.153",
-    "@mui/material": "^5.14.18",
-    "@next/third-parties": "^14.2.4",
-    "axios": "^1.6.2",
+    "@headlessui/react": "^1.7.17",
+    "@mui/icons-material": "^5.14.7",
+    "@mui/lab": "^5.0.0-alpha.142",
+    "@mui/material": "^5.14.7",
+    "@next/bundle-analyzer": "^14.2.3",
+    "@next/third-parties": "^14.2.5",
+    "axios": "^1.5.0",
+    "eslint": "8.48.0",
+    "eslint-config-next": "^14.2.4",
+    "framer-motion": "^10.16.4",
+    "jquery": "^3.7.1",
+    "js-cookie": "^3.0.5",
+    "mailgun": "^0.5.0",
     "mailgun.js": "^9.3.0",
     "next": "^14.2.4",
     "next-sitemap": "^4.2.2",
+    "node-fetch": "^3.3.2",
     "react": "^18.3.1",
-    "react-datepicker": "^4.21.0",
+    "react-compare-slider": "^3.0.1",
+    "react-datepicker": "^4.16.0",
     "react-dom": "^18.3.1",
-    "react-player": "^2.13.0",
+    "react-player": "^2.16.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
-    "react-youtube": "^10.1.0",
-    "sharp": "^0.33.5",
-    "slick-carousel": "^1.8.1"
+    "sharp": "^0.32.6",
+    "slick-carousel": "^1.8.1",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
-    "eslint": "8.48.0",
-    "eslint-config-next": "^14.2.4"
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3"
+  },
+  "engines": {
+    "node": "18.17.1",
+    "npm": "9.6.7"
   }
 }
