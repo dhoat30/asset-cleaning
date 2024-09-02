@@ -1,13 +1,17 @@
 const isProd = process.env.NODE_ENV === "production";
 
 const nextConfig = {
-
+    compiler: {
+        // Enables the styled-components SWC transform
+        styledComponents: true
+    },
     images: {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'data.assetcleaning.co.nz'
-
+                hostname: 'data.assetcleaning.co.nz',
+                port: '',
+                pathname: '/**'
             },
         ],
     },
@@ -16,7 +20,6 @@ const nextConfig = {
         siteUrl: "https://assetcleaning.co.nz",
         name: "Asset Cleaning",
         darkLogo: "/logo-dark.svg",
-
     },
     async redirects() {
         return [

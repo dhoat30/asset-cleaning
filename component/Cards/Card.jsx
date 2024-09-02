@@ -26,15 +26,17 @@ export default function CardComponent({
         paddingBottom: "8px",
       }}
     >
-      <div className="image-wrapper">
-        <Image
-          src={image?.url}
-          alt={image?.alt ? image.alt : title}
-          fill
-          sizes="(max-width: 600px) 100vw,(max-width: 100px) 50vw, 30vw"
-          quality={60}
-        />
-      </div>
+      {image && (
+        <div className="image-wrapper">
+          <Image
+            src={image.url}
+            alt={image.alt ? image.alt : title}
+            fill
+            sizes="(max-width: 600px) 100vw,(max-width: 100px) 50vw, 30vw"
+            quality={60}
+          />
+        </div>
+      )}
 
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
