@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
-import { Button, Container } from "@mui/material";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import Link from "next/link";
 import useActiveSection from "@/hooks/useActiveSection";
 function SubNav({ dataArr }) {
@@ -11,10 +11,15 @@ function SubNav({ dataArr }) {
   const sectionIDArr = dataArr.map((item) => {
     return item.acf_fc_layout;
   });
+
   //get active section
   const activeSection = useActiveSection(sectionIDArr);
   useEffect(() => {
-    handleChange(null, sectionIDArr.indexOf(activeSection));
+    const activeIndex = sectionIDArr.indexOf(activeSection);
+
+    if (activeIndex !== -1) {
+      handleChange(null, sectionIDArr.indexOf(activeSection));
+    }
   }, [activeSection]);
 
   const [showSubnav, setShowSubnav] = useState(false);
@@ -39,6 +44,7 @@ function SubNav({ dataArr }) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  console.log("value", value);
   const tab = dataArr.map((item, index) => {
     return (
       <Tab
