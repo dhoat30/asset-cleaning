@@ -101,7 +101,7 @@ export default function GetQuoteForm({ className, showTitle, formName = "Quote F
                 },
                 {
                     name: "service",
-                    value: formData['service'].join(",")
+                    value: formData['service'] ? formData['service'].join(",") : 0
                 }
             ]
         }

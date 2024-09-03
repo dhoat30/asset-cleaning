@@ -9,14 +9,14 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'gurpreetd12.sg-host.com',
+                hostname: 'data.assetcleaning.co.nz',
                 port: '',
                 pathname: '/**'
             },
         ],
     },
     env: {
-        url: "https://gurpreetd12.sg-host.com",
+        url: "https://data.assetcleaning.co.nz",
         siteUrl: "https://assetcleaning.co.nz",
         name: "Asset Cleaning",
         darkLogo: "/logo-dark.svg",
